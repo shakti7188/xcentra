@@ -90,7 +90,7 @@ export default function FeesContent() {
         <div className="max-w-4xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold text-text-dark mb-4">
+              <h2 className="text-3xl sm:text-4xl font-medium text-text-dark mb-4">
                 Complete Fee <span className="text-accent">Schedule</span>
               </h2>
               <p className="text-text-muted text-lg">
@@ -104,7 +104,7 @@ export default function FeesContent() {
               <ScrollReveal key={category.category} delay={catIdx * 0.1}>
                 <div className="bg-white rounded-2xl border border-black/5 shadow-lg shadow-black/5 overflow-hidden">
                   <div className="bg-gray-50 px-6 py-4 border-b border-black/5">
-                    <h3 className="text-lg font-bold text-text-dark">
+                    <h3 className="text-lg font-semibold text-text-dark">
                       {category.category}
                     </h3>
                   </div>
@@ -146,7 +146,7 @@ export default function FeesContent() {
             <Badge variant="accent" className="mb-4">
               Compare
             </Badge>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium mb-4">
               Xcentra vs <span className="gradient-text">The Rest</span>
             </h2>
             <p className="text-text-secondary text-lg max-w-2xl mx-auto">

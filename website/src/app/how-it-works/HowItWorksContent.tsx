@@ -148,7 +148,7 @@ export default function HowItWorksContent() {
 
                 {/* Right: content */}
                 <div className="pt-2">
-                  <h3 className="text-2xl lg:text-3xl font-bold text-text-dark mb-3">
+                  <h3 className="text-2xl lg:text-3xl font-semibold text-text-dark mb-3">
                     {step.title}
                   </h3>
                   <p className="text-text-muted leading-relaxed mb-4">
@@ -176,7 +176,7 @@ export default function HowItWorksContent() {
       <SectionWrapper theme="dark">
         <div className="text-center mb-12">
           <ScrollReveal>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+            <h2 className="text-3xl sm:text-4xl font-medium mb-6">
               Why <span className="gradient-text">Xcentra</span>?
             </h2>
           </ScrollReveal>
@@ -188,7 +188,7 @@ export default function HowItWorksContent() {
                 <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-accent/10 mx-auto mb-5">
                   <benefit.icon className="h-8 w-8 text-accent" />
                 </div>
-                <h3 className="text-xl font-bold text-text-primary mb-3">
+                <h3 className="text-xl font-semibold text-text-primary mb-3">
                   {benefit.title}
                 </h3>
                 <p className="text-text-secondary text-sm leading-relaxed">

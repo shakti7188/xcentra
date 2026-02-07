@@ -127,7 +127,7 @@ export default function BlogContent() {
                       {post.readTime}
                     </span>
                   </div>
-                  <h3 className="text-lg font-bold text-text-dark mb-2 group-hover:text-accent transition-colors">
+                  <h3 className="text-lg font-semibold text-text-dark mb-2 group-hover:text-accent transition-colors">
                     {post.title}
                   </h3>
                   <p className="text-text-muted text-sm leading-relaxed flex-1">

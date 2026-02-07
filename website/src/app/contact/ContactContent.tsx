@@ -99,7 +99,7 @@ export default function ContactContent() {
                 >
                   <method.icon className={`h-7 w-7 ${method.color}`} />
                 </div>
-                <h3 className="text-lg font-bold text-text-primary mb-2">
+                <h3 className="text-lg font-semibold text-text-primary mb-2">
                   {method.title}
                 </h3>
                 <p className="text-text-secondary text-sm mb-3 leading-relaxed">
@@ -117,7 +117,7 @@ export default function ContactContent() {
         <div className="max-w-2xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-10">
-              <h2 className="text-3xl font-bold mb-3">Send a Message</h2>
+              <h2 className="text-3xl font-medium mb-3">Send a Message</h2>
               <p className="text-text-secondary">
                 Fill out the form below and we will get back to you as soon as
                 possible.
@@ -207,7 +207,7 @@ export default function ContactContent() {
           <ScrollReveal>
             <div className="flex items-center justify-center gap-2 mb-4">
               <MapPin className="h-5 w-5 text-accent" />
-              <h2 className="text-2xl font-bold text-text-dark">
+              <h2 className="text-2xl font-semibold text-text-dark">
                 Our Presence
               </h2>
             </div>

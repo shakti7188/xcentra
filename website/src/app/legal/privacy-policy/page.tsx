@@ -11,7 +11,7 @@ export default function PrivacyPolicyPage() {
     <>
       <section className="bg-bg-primary pt-32 pb-12">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl sm:text-5xl font-medium mb-4">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight mb-4">
             Privacy Policy
           </h1>
           <p className="text-text-secondary">Last updated: February 2026</p>
@@ -22,7 +22,7 @@ export default function PrivacyPolicyPage() {
         <div className="max-w-3xl mx-auto prose prose-lg prose-gray">
           <div className="space-y-8 text-text-muted leading-relaxed">
             <div>
-              <h2 className="text-2xl font-bold text-text-dark mb-4">
+              <h2 className="text-2xl font-semibold text-text-dark mb-4">
                 1. Information We Collect
               </h2>
               <p>
@@ -34,7 +34,7 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold text-text-dark mb-4">
+              <h2 className="text-2xl font-semibold text-text-dark mb-4">
                 2. How We Use Your Information
               </h2>
               <p>
@@ -46,7 +46,7 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold text-text-dark mb-4">
+              <h2 className="text-2xl font-semibold text-text-dark mb-4">
                 3. Data Security
               </h2>
               <p>
@@ -57,7 +57,7 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold text-text-dark mb-4">
+              <h2 className="text-2xl font-semibold text-text-dark mb-4">
                 4. Data Sharing
               </h2>
               <p>
@@ -68,7 +68,7 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold text-text-dark mb-4">
+              <h2 className="text-2xl font-semibold text-text-dark mb-4">
                 5. Your Rights
               </h2>
               <p>
@@ -79,7 +79,7 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold text-text-dark mb-4">
+              <h2 className="text-2xl font-semibold text-text-dark mb-4">
                 6. Contact
               </h2>
               <p>

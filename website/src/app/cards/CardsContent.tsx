@@ -134,8 +134,8 @@ export default function CardsContent() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <ScrollReveal>
-                <Badge variant="live" className="mb-6">
-                  Live Today
+                <Badge variant="accent" className="mb-6">
+                  Xcentra Cards
                 </Badge>
               </ScrollReveal>
               <ScrollReveal delay={0.1}>
@@ -194,7 +194,7 @@ export default function CardsContent() {
             </Badge>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-dark mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-text-dark mb-6">
               A Card for Every <span className="text-accent">Lifestyle</span>
             </h2>
           </ScrollReveal>
@@ -219,7 +219,7 @@ export default function CardsContent() {
                   </div>
                 </div>
                 <div className="p-6 flex-1 flex flex-col">
-                  <h3 className="text-2xl font-bold text-text-dark mb-2">
+                  <h3 className="text-2xl font-semibold text-text-dark mb-2">
                     {card.name}
                   </h3>
                   <p className="text-text-muted text-sm leading-relaxed mb-6">
@@ -252,7 +252,7 @@ export default function CardsContent() {
       <SectionWrapper theme="dark">
         <div className="text-center mb-16">
           <ScrollReveal>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium mb-6">
               Built for <span className="gradient-text">Real Life</span>
             </h2>
           </ScrollReveal>
@@ -273,7 +273,7 @@ export default function CardsContent() {
                 >
                   <feature.icon className={`h-7 w-7 ${feature.color}`} />
                 </div>
-                <h3 className="text-xl font-bold text-text-primary mb-3">
+                <h3 className="text-xl font-semibold text-text-primary mb-3">
                   {feature.title}
                 </h3>
                 <p className="text-text-secondary leading-relaxed">
@@ -289,7 +289,7 @@ export default function CardsContent() {
       <SectionWrapper theme="light">
         <div className="text-center mb-12">
           <ScrollReveal>
-            <h2 className="text-3xl sm:text-4xl font-bold text-text-dark mb-6">
+            <h2 className="text-3xl sm:text-4xl font-medium text-text-dark mb-6">
               Use Xcentra <span className="text-accent">Everywhere</span>
             </h2>
           </ScrollReveal>

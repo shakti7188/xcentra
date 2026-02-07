@@ -112,7 +112,7 @@ export default function RoadmapContent() {
                       </span>
                     </div>
 
-                    <h3 className="text-2xl lg:text-3xl font-bold text-text-primary mb-3">
+                    <h3 className="text-2xl lg:text-3xl font-semibold text-text-primary mb-3">
                       {phase.title}
                     </h3>
                     <p className="text-text-secondary leading-relaxed mb-6">

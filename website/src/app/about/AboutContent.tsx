@@ -152,7 +152,7 @@ export default function AboutContent() {
               </Badge>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <h2 className="text-3xl sm:text-4xl font-bold text-text-dark mb-6">
+              <h2 className="text-3xl sm:text-4xl font-medium text-text-dark mb-6">
                 Making Stablecoins Work Like{" "}
                 <span className="text-accent">Everyday Money</span>
               </h2>
@@ -188,7 +188,7 @@ export default function AboutContent() {
             </Badge>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium mb-6">
               What Drives Us
             </h2>
           </ScrollReveal>
@@ -203,7 +203,7 @@ export default function AboutContent() {
                 >
                   <value.icon className={`h-7 w-7 ${value.color}`} />
                 </div>
-                <h3 className="text-xl font-bold text-text-primary mb-3">
+                <h3 className="text-xl font-semibold text-text-primary mb-3">
                   {value.title}
                 </h3>
                 <p className="text-text-secondary leading-relaxed">

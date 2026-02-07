@@ -153,7 +153,7 @@ export default function FAQContent() {
           {categories.map((category, i) => (
             <ScrollReveal key={category.title} delay={i * 0.1}>
               <div>
-                <h2 className="text-2xl font-bold text-text-dark mb-6 flex items-center gap-3">
+                <h2 className="text-2xl font-semibold text-text-dark mb-6 flex items-center gap-3">
                   <span className="h-8 w-1 bg-accent rounded-full" />
                   {category.title}
                 </h2>
@@ -168,7 +168,7 @@ export default function FAQContent() {
       <SectionWrapper theme="dark">
         <div className="text-center max-w-2xl mx-auto">
           <ScrollReveal>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+            <h2 className="text-3xl sm:text-4xl font-medium mb-6">
               Still Have Questions?
             </h2>
           </ScrollReveal>

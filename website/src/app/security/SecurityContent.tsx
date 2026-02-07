@@ -130,7 +130,7 @@ export default function SecurityContent() {
       <SectionWrapper theme="dark">
         <ScrollReveal>
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+            <h2 className="text-3xl sm:text-4xl font-medium mb-4">
               Multi-Layer <span className="gradient-text">Protection</span>
             </h2>
             <p className="text-text-secondary text-lg max-w-2xl mx-auto">
@@ -149,7 +149,7 @@ export default function SecurityContent() {
                 >
                   <feature.icon className={`h-7 w-7 ${feature.color}`} />
                 </div>
-                <h3 className="text-xl font-bold text-text-primary mb-3">
+                <h3 className="text-xl font-semibold text-text-primary mb-3">
                   {feature.title}
                 </h3>
                 <p className="text-text-secondary leading-relaxed">
@@ -169,7 +169,7 @@ export default function SecurityContent() {
               <Badge variant="accent" className="mb-4">
                 Compliance
               </Badge>
-              <h2 className="text-3xl sm:text-4xl font-bold text-text-dark mb-4">
+              <h2 className="text-3xl sm:text-4xl font-medium text-text-dark mb-4">
                 Regulatory <span className="text-accent">Compliance</span>
               </h2>
               <p className="text-text-muted text-lg">
@@ -186,7 +186,7 @@ export default function SecurityContent() {
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 mb-5">
                     <item.icon className="h-6 w-6 text-accent" />
                   </div>
-                  <h3 className="text-lg font-bold text-text-dark mb-3">
+                  <h3 className="text-lg font-semibold text-text-dark mb-3">
                     {item.title}
                   </h3>
                   <p className="text-text-muted leading-relaxed text-sm">
@@ -207,7 +207,7 @@ export default function SecurityContent() {
               <Badge variant="accent" className="mb-4">
                 Stay Safe
               </Badge>
-              <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+              <h2 className="text-3xl sm:text-4xl font-medium mb-4">
                 Security <span className="gradient-text">Best Practices</span>
               </h2>
               <p className="text-text-secondary text-lg">

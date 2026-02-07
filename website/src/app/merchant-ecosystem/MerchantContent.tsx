@@ -84,7 +84,7 @@ export default function MerchantContent() {
       <SectionWrapper theme="light">
         <div className="text-center mb-12">
           <ScrollReveal>
-            <h2 className="text-3xl sm:text-4xl font-bold text-text-dark mb-4">
+            <h2 className="text-3xl sm:text-4xl font-medium text-text-dark mb-4">
               Better for <span className="text-accent">Everyone</span>
             </h2>
           </ScrollReveal>
@@ -98,7 +98,7 @@ export default function MerchantContent() {
                 >
                   <b.icon className={`h-8 w-8 ${b.color}`} />
                 </div>
-                <h3 className="text-xl font-bold text-text-dark mb-2">{b.title}</h3>
+                <h3 className="text-xl font-semibold text-text-dark mb-2">{b.title}</h3>
                 <p className="text-text-muted text-sm leading-relaxed">{b.description}</p>
               </div>
             </ScrollReveal>
@@ -110,7 +110,7 @@ export default function MerchantContent() {
       <SectionWrapper theme="dark">
         <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+            <h2 className="text-3xl sm:text-4xl font-medium mb-6">
               How <span className="gradient-text">Xcentra PoS</span> Works
             </h2>
           </ScrollReveal>

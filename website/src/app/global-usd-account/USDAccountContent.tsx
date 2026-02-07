@@ -104,7 +104,7 @@ export default function USDAccountContent() {
                 >
                   <f.icon className={`h-7 w-7 ${f.color}`} />
                 </div>
-                <h3 className="text-xl font-bold text-text-dark mb-3">
+                <h3 className="text-xl font-semibold text-text-dark mb-3">
                   {f.title}
                 </h3>
                 <p className="text-text-muted leading-relaxed">
@@ -121,7 +121,7 @@ export default function USDAccountContent() {
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <ScrollReveal>
-              <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+              <h2 className="text-3xl sm:text-4xl font-medium mb-6">
                 Perfect <span className="gradient-text">For</span>
               </h2>
             </ScrollReveal>

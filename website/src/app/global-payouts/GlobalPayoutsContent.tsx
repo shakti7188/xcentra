@@ -98,7 +98,7 @@ export default function GlobalPayoutsContent() {
                 >
                   <b.icon className={`h-8 w-8 ${b.color}`} />
                 </div>
-                <h3 className="text-xl font-bold text-text-dark mb-2">
+                <h3 className="text-xl font-semibold text-text-dark mb-2">
                   {b.title}
                 </h3>
                 <p className="text-text-muted text-sm leading-relaxed">
@@ -114,7 +114,7 @@ export default function GlobalPayoutsContent() {
       <SectionWrapper theme="dark">
         <div className="text-center mb-12">
           <ScrollReveal>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+            <h2 className="text-3xl sm:text-4xl font-medium mb-6">
               How Global Payouts <span className="gradient-text">Work</span>
             </h2>
           </ScrollReveal>
@@ -145,7 +145,7 @@ export default function GlobalPayoutsContent() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent text-black font-bold text-lg mx-auto mb-5">
                   {step.step}
                 </div>
-                <h3 className="text-xl font-bold text-text-primary mb-3">
+                <h3 className="text-xl font-semibold text-text-primary mb-3">
                   {step.title}
                 </h3>
                 <p className="text-text-secondary text-sm leading-relaxed">
@@ -161,7 +161,7 @@ export default function GlobalPayoutsContent() {
       <SectionWrapper theme="light">
         <div className="text-center mb-12">
           <ScrollReveal>
-            <h2 className="text-3xl font-bold text-text-dark mb-4">
+            <h2 className="text-3xl font-medium text-text-dark mb-4">
               Supported Currencies
             </h2>
             <p className="text-text-muted max-w-xl mx-auto">
