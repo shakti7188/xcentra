@@ -59,7 +59,7 @@ export default function FinalCTA() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tighter mb-6 leading-[1.1]">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tighter mb-6 leading-[1.1]">
               Make Stablecoins{" "}
               <span className="gradient-text">Practical</span>
               <br />

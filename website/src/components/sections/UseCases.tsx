@@ -102,7 +102,7 @@ export default function UseCases() {
             <Badge variant="accent" className="mb-4">
               Use Cases
             </Badge>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-text-dark mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-text-dark mb-4">
               Real Use Cases for{" "}
               <span className="gradient-text">Xcentra</span>
             </h2>

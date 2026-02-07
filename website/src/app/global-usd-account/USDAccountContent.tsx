@@ -73,7 +73,7 @@ export default function USDAccountContent() {
             </Badge>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight mb-6">
               Your Global{" "}
               <span className="gradient-text">USD Account</span>
             </h1>
@@ -144,7 +144,7 @@ export default function USDAccountContent() {
         <GravityGrid dotColor="rgba(245,166,35,0.2)" />
         <div className="relative z-10 mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
           <ScrollReveal>
-            <h2 className="text-3xl sm:text-4xl font-extrabold mb-6">
+            <h2 className="text-3xl sm:text-4xl font-medium mb-6">
               Get Early <span className="gradient-text">Access</span>
             </h2>
           </ScrollReveal>

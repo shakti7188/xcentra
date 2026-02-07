@@ -133,7 +133,7 @@ export default function FAQContent() {
             </Badge>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight mb-6">
               Frequently Asked{" "}
               <span className="gradient-text">Questions</span>
             </h1>

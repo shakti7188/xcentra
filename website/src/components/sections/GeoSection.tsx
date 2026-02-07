@@ -84,7 +84,7 @@ export default function GeoSection() {
             <Badge variant="accent" className="mb-4">
               Global Coverage
             </Badge>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight mb-4">
               Xcentra for{" "}
               <span className="gradient-text">Your Region</span>
             </h2>

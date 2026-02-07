@@ -61,7 +61,7 @@ export default function MerchantContent() {
             </Badge>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight mb-6">
               The <span className="gradient-text">Merchant Ecosystem</span>
             </h1>
           </ScrollReveal>
@@ -144,7 +144,7 @@ export default function MerchantContent() {
         <GravityGrid dotColor="rgba(245,166,35,0.2)" />
         <div className="relative z-10 mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
           <ScrollReveal>
-            <h2 className="text-3xl sm:text-4xl font-extrabold mb-6">
+            <h2 className="text-3xl sm:text-4xl font-medium mb-6">
               Become a <span className="gradient-text">Partner Merchant</span>
             </h2>
           </ScrollReveal>

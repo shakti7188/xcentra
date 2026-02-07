@@ -71,7 +71,7 @@ export default function FeesContent() {
             </Badge>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight mb-6">
               Simple, Honest{" "}
               <span className="gradient-text">Pricing</span>
             </h1>
@@ -166,7 +166,7 @@ export default function FeesContent() {
                   </th>
                   <th className="text-center py-5 px-5 border-b border-accent/30 bg-accent/[0.08] w-[24%]">
                     <div className="flex flex-col items-center gap-1">
-                      <span className="text-accent font-extrabold text-base">Xcentra</span>
+                      <span className="text-accent font-medium text-base">Xcentra</span>
                       <span className="text-[10px] text-accent/60 font-medium uppercase tracking-widest">Best Value</span>
                     </div>
                   </th>
@@ -218,7 +218,7 @@ export default function FeesContent() {
         <GravityGrid dotColor="rgba(245,166,35,0.08)" />
         <div className="relative z-10 mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
           <ScrollReveal>
-            <h2 className="text-3xl sm:text-4xl font-extrabold mb-4">
+            <h2 className="text-3xl sm:text-4xl font-medium mb-4">
               No Hidden Fees. <span className="gradient-text">Ever.</span>
             </h2>
           </ScrollReveal>

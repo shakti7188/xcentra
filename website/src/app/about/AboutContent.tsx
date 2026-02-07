@@ -79,7 +79,7 @@ export default function AboutContent() {
               <Badge variant="accent" className="mb-6">About Xcentra</Badge>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight mb-6">
                 Building the{" "}
                 <span className="gradient-text">Borderless</span> Financial
                 Future
@@ -114,7 +114,7 @@ export default function AboutContent() {
             {stats.map((stat, i) => (
               <ScrollReveal key={stat.label} delay={i * 0.1}>
                 <div className="text-center">
-                  <p className="text-3xl sm:text-4xl font-extrabold gradient-text mb-2">
+                  <p className="text-3xl sm:text-4xl font-medium gradient-text mb-2">
                     {stat.value}
                   </p>
                   <p className="text-sm text-text-secondary">{stat.label}</p>
@@ -220,7 +220,7 @@ export default function AboutContent() {
         <GravityGrid dotColor="rgba(245,166,35,0.2)" />
         <div className="relative z-10 mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
           <ScrollReveal>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium mb-6">
               Ready to Go <span className="gradient-text">Borderless</span>?
             </h2>
           </ScrollReveal>

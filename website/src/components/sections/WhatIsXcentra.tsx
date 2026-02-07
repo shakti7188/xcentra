@@ -46,7 +46,7 @@ function AnimatedBalance() {
 
   return (
     <motion.p
-      className="text-white font-extrabold text-2xl mb-2"
+      className="text-white font-medium text-2xl mb-2"
       animate={{ opacity: [1, 0.85, 1] }}
       transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
     >
@@ -117,14 +117,14 @@ export default function WhatIsXcentra() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight mb-6 text-black">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium leading-tight mb-6 text-black">
               Direct Stablecoin Spending for{" "}
               <span className="text-accent">Your Daily Life</span>
             </h2>
           </ScrollReveal>
 
           <ScrollReveal delay={0.2}>
-            <p className="text-gray-700 text-lg leading-relaxed mb-8 font-medium">
+            <p className="text-[#474a52] text-[17.5px] leading-[1.7] mb-8 font-normal">
               Xcentra is a fintech platform that makes stablecoins usable as
               everyday money. Instead of holding stablecoins only as digital
               assets, users can spend them in real life through Xcentra
@@ -325,35 +325,30 @@ export default function WhatIsXcentra() {
                             transition={{ duration: 0.3 }}
                             className="px-4 pb-5"
                           >
-                            {/* Card Preview — always rotating */}
-                            <div className="mb-3" style={{ perspective: "600px" }}>
+                            {/* Card Preview — continuous tilt + shimmer instead of flip */}
+                            <div className="mb-3">
                               <motion.div
                                 animate={{
-                                  rotateY: [0, 180, 360],
-                                  rotateX: [2, 4, 2],
+                                  rotateX: [2, -2, 2],
+                                  rotateY: [-3, 3, -3],
+                                  scale: [1, 1.02, 1],
                                 }}
-                                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                                 className="relative h-[155px] rounded-xl overflow-hidden"
-                                style={{ transformStyle: "preserve-3d" }}
+                                style={{ perspective: "600px" }}
                               >
-                                {/* Front */}
-                                <div className="absolute inset-0" style={{ backfaceVisibility: "hidden" }}>
-                                  <Image
-                                    src="/images/stock/xcentra-card-black.png"
-                                    alt="Xcentra Card"
-                                    fill
-                                    className="object-cover rounded-xl"
-                                  />
-                                </div>
-                                {/* Back */}
-                                <div className="absolute inset-0" style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}>
-                                  <Image
-                                    src="/images/stock/xcentra-card-gold.png"
-                                    alt="Xcentra Gold Card"
-                                    fill
-                                    className="object-cover rounded-xl"
-                                  />
-                                </div>
+                                <Image
+                                  src="/images/stock/xcentra-card-black.png"
+                                  alt="Xcentra Card"
+                                  fill
+                                  className="object-cover rounded-xl"
+                                />
+                                {/* Shimmer sweep */}
+                                <motion.div
+                                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent rounded-xl"
+                                  animate={{ x: ["-100%", "200%"] }}
+                                  transition={{ duration: 3, repeat: Infinity, repeatDelay: 2, ease: "easeInOut" }}
+                                />
                               </motion.div>
                             </div>
 

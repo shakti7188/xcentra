@@ -141,7 +141,7 @@ export default function Testimonials() {
           </div>
         </ScrollReveal>
         <ScrollReveal delay={0.1}>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-black">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-black">
             Loved by Users Worldwide
           </h2>
         </ScrollReveal>

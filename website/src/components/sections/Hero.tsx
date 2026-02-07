@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState } from "react";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
@@ -8,6 +9,71 @@ import FloatingElement from "@/components/animations/FloatingElement";
 import GravityGrid from "@/components/animations/GravityGrid";
 import TypewriterText from "@/components/animations/TypewriterText";
 import MagneticElement from "@/components/animations/MagneticElement";
+import { CheckCircle, ArrowRight, Loader2 } from "lucide-react";
+
+function WaitlistForm() {
+  const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    setLoading(true);
+    // Simulate API call
+    setTimeout(() => {
+      setLoading(false);
+      setSubmitted(true);
+    }, 1200);
+  };
+
+  if (submitted) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        className="flex items-center gap-3 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl px-6 py-4"
+      >
+        <div className="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+          <CheckCircle className="w-5 h-5 text-emerald-400" />
+        </div>
+        <div>
+          <p className="text-white font-semibold text-sm">You&apos;re on the list!</p>
+          <p className="text-text-secondary text-xs">We&apos;ll notify you when your card is ready.</p>
+        </div>
+      </motion.div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 w-full max-w-lg">
+      <div className="flex-1 relative">
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Enter your email"
+          required
+          className="w-full bg-white/[0.06] border border-white/10 rounded-xl px-5 py-3.5 text-white placeholder-text-muted text-sm focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-all"
+        />
+      </div>
+      <button
+        type="submit"
+        disabled={loading}
+        className="inline-flex items-center justify-center gap-2 bg-accent text-black font-bold px-7 py-3.5 rounded-xl hover:bg-accent-light transition-all duration-300 text-sm disabled:opacity-70 cursor-pointer"
+      >
+        {loading ? (
+          <Loader2 className="w-4 h-4 animate-spin" />
+        ) : (
+          <>
+            Join Waitlist
+            <ArrowRight className="w-4 h-4" />
+          </>
+        )}
+      </button>
+    </form>
+  );
+}
 
 export default function Hero() {
   return (
@@ -45,7 +111,7 @@ export default function Hero() {
               </Badge>
             </motion.div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.05] tracking-tighter mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-medium leading-[1.05] tracking-tighter mb-6">
               <motion.span
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -91,11 +157,12 @@ export default function Hero() {
               expats, and the modern digital economy.
             </motion.p>
 
+            {/* CTA Row: Get Card + Waitlist Form */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.85 }}
-              className="flex flex-col sm:flex-row gap-4"
+              className="space-y-5"
             >
               <MagneticElement strength={0.15} radius={150}>
                 <Button variant="secondary" size="lg" href="/cards" className="group">
@@ -105,64 +172,10 @@ export default function Hero() {
                   </svg>
                 </Button>
               </MagneticElement>
-              <MagneticElement strength={0.15} radius={150}>
-                <Button variant="outline-light" size="lg" href="/contact">
-                  Join Waitlist
-                </Button>
-              </MagneticElement>
-            </motion.div>
 
-            {/* Card network logos only — clean and minimal */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 1.1 }}
-              className="mt-10 pt-8 border-t border-border-dark"
-            >
-              <p className="text-[11px] text-text-muted uppercase tracking-widest mb-4">Powered by</p>
-              <div className="flex items-center gap-6">
-                {/* Mastercard — Official overlapping circles */}
-                <div className="opacity-50 hover:opacity-90 transition-opacity">
-                  <svg className="h-8 w-auto" viewBox="0 0 131.39 86.9" fill="none">
-                    <circle cx="48.37" cy="43.45" r="27.5" fill="#EB001B"/>
-                    <circle cx="83.02" cy="43.45" r="27.5" fill="#F79E1B"/>
-                    <path d="M65.7 20.79a27.42 27.42 0 0 1 10.13 21.26v2.8A27.42 27.42 0 0 1 65.7 66.11a27.42 27.42 0 0 1-10.14-21.26v-2.8A27.42 27.42 0 0 1 65.7 20.79Z" fill="#FF5F00"/>
-                  </svg>
-                </div>
-
-                {/* Apple Pay — Apple logo + text */}
-                <div className="opacity-50 hover:opacity-90 transition-opacity">
-                  <svg className="h-8 w-auto" viewBox="0 0 165 70" fill="white">
-                    {/* Apple */}
-                    <path d="M30.1 18.3a7.7 7.7 0 0 0 1.76-5.5 7.83 7.83 0 0 0-5.2 2.69 7.33 7.33 0 0 0-1.81 5.32 6.49 6.49 0 0 0 5.25-2.51Z"/>
-                    <path d="M31.84 21c-2.9-.17-5.37 1.65-6.75 1.65s-3.5-1.56-5.78-1.52a8.54 8.54 0 0 0-7.25 4.39c-3.1 5.37-.8 13.31 2.22 17.67 1.47 2.15 3.23 4.53 5.55 4.45 2.22-.09 3.06-1.44 5.74-1.44s3.44 1.44 5.78 1.39c2.4-.04 3.9-2.17 5.37-4.32a19 19 0 0 0 2.43-5 7.86 7.86 0 0 1-4.75-7.17 7.98 7.98 0 0 1 3.8-6.7 8.17 8.17 0 0 0-6.36-3.4Z"/>
-                    {/* Pay */}
-                    <path d="M56.45 14.4h12.8c7.45 0 12.64 5.14 12.64 12.62S76.75 39.7 69.04 39.7H62.4v13.12H56.45ZM62.4 34.72h6.85c5.19 0 8.15-2.8 8.15-7.69s-2.96-7.67-8.12-7.67H62.4Z"/>
-                    <path d="M83.6 44.25c0-5.28 4.04-8.51 11.21-8.86l8.26-.46v-2.34c0-3.36-2.26-5.37-6.03-5.37-3.57 0-5.83 1.71-6.37 4.33h-5.46c.33-5.14 4.63-8.93 12.01-8.93 7.06 0 11.58 3.75 11.58 9.58v20.07h-5.53v-4.79h-.13a10 10 0 0 1-8.93 5.19c-5.55 0-10.61-3.31-10.61-8.42Zm19.47-2.55v-2.38l-7.43.44c-3.71.25-5.81 1.82-5.81 4.33s2.22 4.15 5.59 4.15c4.41 0 7.65-3 7.65-6.54Z"/>
-                    <path d="M115.21 60.81l-1.04-4.41a8.95 8.95 0 0 0 3.67.9c2.68 0 4.16-1.12 5.3-4.5l.57-1.73-10.97-30.21h6.24l7.95 25.07h.12l7.95-25.07h6.09l-11.39 31.95c-2.59 7.33-5.59 9.68-11.88 9.68a14.04 14.04 0 0 1-2.61-.68Z"/>
-                  </svg>
-                </div>
-
-                {/* Google Pay — G icon + text */}
-                <div className="opacity-50 hover:opacity-90 transition-opacity">
-                  <svg className="h-8 w-auto" viewBox="0 0 150 60" fill="none">
-                    {/* Colorful G */}
-                    <path d="M25.95 30.65c0-1.89-.15-3.28-.48-4.72H13.25v8.57h7.28a6.29 6.29 0 0 1-2.73 4.13l4.41 3.42c2.56-2.37 4.04-5.86 4.04-11.4h-.3Z" fill="#4285F4"/>
-                    <path d="M13.25 43c3.57 0 6.56-1.18 8.75-3.2l-4.41-3.42a8.06 8.06 0 0 1-12.01-4.24l-4.57 3.54A13.25 13.25 0 0 0 13.25 43Z" fill="#34A853"/>
-                    <path d="M5.58 32.14a8 8 0 0 1 0-5.13L1.01 23.47a13.25 13.25 0 0 0 0 11.9l4.57-3.23Z" fill="#FBBC04"/>
-                    <path d="M13.25 21.74a7.2 7.2 0 0 1 5.1 1.99l3.82-3.82A12.8 12.8 0 0 0 13.25 16a13.25 13.25 0 0 0-12.24 7.47l4.57 3.54a7.9 7.9 0 0 1 7.67-5.27Z" fill="#EA4335"/>
-                    {/* Pay text */}
-                    <text x="35" y="38" fontFamily="'Helvetica Neue', Arial, sans-serif" fontSize="22" fontWeight="500" fill="white">Pay</text>
-                  </svg>
-                </div>
-
-                {/* Samsung Pay — text wordmark */}
-                <div className="opacity-50 hover:opacity-90 transition-opacity">
-                  <svg className="h-7 w-auto" viewBox="0 0 180 40" fill="white">
-                    <text x="0" y="27" fontFamily="'Helvetica Neue', Arial, sans-serif" fontSize="18" fontWeight="300" letterSpacing="2.5">SAMSUNG</text>
-                    <text x="118" y="27" fontFamily="'Helvetica Neue', Arial, sans-serif" fontSize="18" fontWeight="600" letterSpacing="1">Pay</text>
-                  </svg>
-                </div>
+              <div>
+                <p className="text-text-muted text-xs mb-2.5 uppercase tracking-widest font-medium">Or join the waitlist</p>
+                <WaitlistForm />
               </div>
             </motion.div>
           </motion.div>
@@ -211,21 +224,6 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 1.5, repeat: Infinity }}
-      >
-        <div className="w-6 h-10 rounded-full border-2 border-white/20 flex items-start justify-center pt-2">
-          <motion.div
-            className="w-1.5 h-3 rounded-full bg-accent"
-            animate={{ opacity: [1, 0.3, 1], y: [0, 6, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-          />
-        </div>
-      </motion.div>
     </section>
   );
 }

@@ -112,7 +112,7 @@ export default function SecurityContent() {
             </Badge>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight mb-6">
               Your Assets,{" "}
               <span className="gradient-text">Fully Protected</span>
             </h1>
@@ -241,7 +241,7 @@ export default function SecurityContent() {
         <GravityGrid dotColor="rgba(245,166,35,0.08)" />
         <div className="relative z-10 mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
           <ScrollReveal>
-            <h2 className="text-3xl sm:text-4xl font-extrabold mb-4">
+            <h2 className="text-3xl sm:text-4xl font-medium mb-4">
               Security You Can <span className="gradient-text">Trust</span>
             </h2>
           </ScrollReveal>

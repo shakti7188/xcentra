@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className="bg-bg-primary border-t border-border-dark">
       <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-16">
         {/* Main Footer */}
-        <div className="grid grid-cols-2 gap-8 py-16 md:grid-cols-6">
+        <div className="grid grid-cols-2 gap-8 py-16 md:grid-cols-5">
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-1">
             <div className="mb-4">
@@ -75,23 +75,6 @@ export default function Footer() {
             <h3 className="text-sm font-semibold text-text-primary mb-4">Resources</h3>
             <ul className="space-y-3">
               {footerNav.resources.map((item) => (
-                <li key={item.label}>
-                  <Link
-                    href={item.href}
-                    className="text-sm text-text-secondary hover:text-text-primary transition-colors"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Regions */}
-          <div>
-            <h3 className="text-sm font-semibold text-text-primary mb-4">Regions</h3>
-            <ul className="space-y-3">
-              {footerNav.regions.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}

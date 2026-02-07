@@ -324,7 +324,7 @@ export default function Roadmap() {
             <Badge variant="accent" className="mb-4">
               Roadmap
             </Badge>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight mb-4">
               Building the Future of{" "}
               <span className="gradient-text">Global Payments</span>
             </h2>
@@ -341,10 +341,15 @@ export default function Roadmap() {
         {/* Horizontal Progress Rail */}
         <ProgressRail />
 
-        {/* Phase Cards — Bento: first card spans 2 cols, rest are 1 col each */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-          {phases.map((phase, index) => (
-            <PhaseCard key={phase.id} phase={phase} index={index} />
+        {/* Phase 1 — hero card, full width */}
+        <div className="mb-5">
+          <PhaseCard phase={phases[0]} index={0} />
+        </div>
+
+        {/* Phases 2, 3, 4 — balanced 3-column grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+          {phases.slice(1).map((phase, index) => (
+            <PhaseCard key={phase.id} phase={phase} index={index + 1} />
           ))}
         </div>
 

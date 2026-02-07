@@ -24,10 +24,16 @@ export default function TypewriterText({
   const [currentText, setCurrentText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, margin: "-100px" });
+  const isInView = useInView(ref, { once: false, margin: "-50px" });
+  const [hasBeenVisible, setHasBeenVisible] = useState(false);
+
+  // Once visible, always keep running (fixes Windows/cross-browser issues)
+  useEffect(() => {
+    if (isInView && !hasBeenVisible) setHasBeenVisible(true);
+  }, [isInView, hasBeenVisible]);
 
   useEffect(() => {
-    if (!isInView) return;
+    if (!hasBeenVisible) return;
 
     const currentWord = words[currentWordIndex];
 
@@ -63,7 +69,7 @@ export default function TypewriterText({
     typingSpeed,
     deletingSpeed,
     pauseTime,
-    isInView,
+    hasBeenVisible,
   ]);
 
   return (

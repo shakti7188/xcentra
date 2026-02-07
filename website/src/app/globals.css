@@ -52,6 +52,15 @@ h1 {
   letter-spacing: -0.04em;
 }
 
+/* Body text on light backgrounds — standardized */
+.section-light p,
+.section-light li {
+  color: #474a52;
+  font-size: 17.5px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
 /* ===== Selection ===== */
 ::selection {
   background: var(--color-accent);

@@ -34,8 +34,9 @@ const cardTypes = [
       "Subscription management",
       "Apple Pay & Google Pay",
     ],
-    badge: "Popular",
-    badgeVariant: "accent" as const,
+    badge: "Most Popular",
+    badgeStyle: "bg-accent/90 text-black",
+    badgeIcon: "★",
   },
   {
     name: "Physical Card",
@@ -48,8 +49,9 @@ const cardTypes = [
       "In-store purchases",
       "Global merchant acceptance",
     ],
-    badge: "Premium",
-    badgeVariant: "coming" as const,
+    badge: "Recommended",
+    badgeStyle: "bg-black text-white",
+    badgeIcon: "◆",
   },
   {
     name: "Premium Card",
@@ -62,8 +64,9 @@ const cardTypes = [
       "Exclusive cashback rewards",
       "Airport lounge access",
     ],
-    badge: "Coming Soon",
-    badgeVariant: "future" as const,
+    badge: "Launching Soon",
+    badgeStyle: "bg-white/90 text-gray-700 border border-gray-200",
+    badgeIcon: "→",
   },
 ];
 
@@ -136,7 +139,7 @@ export default function CardsContent() {
                 </Badge>
               </ScrollReveal>
               <ScrollReveal delay={0.1}>
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight mb-6">
                   Spend Stablecoins{" "}
                   <span className="gradient-text">Anywhere</span>
                 </h1>
@@ -209,7 +212,10 @@ export default function CardsContent() {
                     className="object-cover"
                   />
                   <div className="absolute top-4 left-4">
-                    <Badge variant={card.badgeVariant}>{card.badge}</Badge>
+                    <span className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-[11px] font-semibold tracking-wide shadow-lg ${card.badgeStyle}`}>
+                      <span className="text-[10px]">{card.badgeIcon}</span>
+                      {card.badge}
+                    </span>
                   </div>
                 </div>
                 <div className="p-6 flex-1 flex flex-col">
@@ -310,7 +316,7 @@ export default function CardsContent() {
         <GravityGrid dotColor="rgba(245,166,35,0.2)" />
         <div className="relative z-10 mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
           <ScrollReveal>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium mb-6">
               Get Your Card <span className="gradient-text">Today</span>
             </h2>
           </ScrollReveal>
