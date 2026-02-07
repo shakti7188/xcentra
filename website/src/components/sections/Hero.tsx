@@ -116,7 +116,7 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Right: Stacked Card Visual */}
+          {/* Right: 3D Flipping Card — original animation restored */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -124,45 +124,25 @@ export default function Hero() {
             className="flex justify-center lg:justify-end"
           >
             <FloatingElement amplitude={8} duration={4}>
-              <div className="relative" style={{ perspective: "1200px" }}>
-                {/* Back card — Gold (offset) */}
+              <div className="perspective">
                 <motion.div
-                  className="absolute -top-4 -left-4 sm:-top-6 sm:-left-6"
-                  style={{
-                    transform: "rotateX(8deg) rotateY(-5deg) rotateZ(-3deg)",
-                    transformStyle: "preserve-3d",
-                  }}
-                  animate={{
-                    rotateZ: [-3, -1, -3],
-                  }}
+                  className="preserve-3d relative w-[360px] h-[226px] sm:w-[430px] sm:h-[270px]"
+                  animate={{ rotateY: [0, 180, 360] }}
                   transition={{
-                    duration: 6,
+                    duration: 4,
                     ease: "easeInOut",
                     repeat: Infinity,
+                    repeatDelay: 3,
                   }}
                 >
-                  <div className="opacity-60 blur-[0.5px]">
-                    <CardVisual variant="gold" size="md" />
+                  {/* Front — Black card */}
+                  <div className="absolute inset-0 backface-hidden">
+                    <CardVisual variant="black" size="lg" className="w-full h-full" />
                   </div>
-                </motion.div>
-
-                {/* Front card — Black (main) */}
-                <motion.div
-                  style={{
-                    transform: "rotateX(5deg) rotateY(-8deg)",
-                    transformStyle: "preserve-3d",
-                  }}
-                  animate={{
-                    rotateY: [-8, -4, -8],
-                    rotateX: [5, 3, 5],
-                  }}
-                  transition={{
-                    duration: 6,
-                    ease: "easeInOut",
-                    repeat: Infinity,
-                  }}
-                >
-                  <CardVisual variant="black" size="md" />
+                  {/* Back — Virtual card */}
+                  <div className="absolute inset-0 backface-hidden rotate-y-180">
+                    <CardVisual variant="virtual" size="lg" className="w-full h-full" />
+                  </div>
                 </motion.div>
               </div>
             </FloatingElement>

@@ -7,7 +7,6 @@ import WhyChoose from "@/components/sections/WhyChoose";
 import HowItWorks from "@/components/sections/HowItWorks";
 import Roadmap from "@/components/sections/Roadmap";
 import UseCases from "@/components/sections/UseCases";
-import FeaturesGrid from "@/components/sections/FeaturesGrid";
 import Testimonials from "@/components/sections/Testimonials";
 import GeoSection from "@/components/sections/GeoSection";
 import FAQ from "@/components/sections/FAQ";
@@ -46,10 +45,7 @@ export default async function Home() {
       {/* Section 9: Use Cases — Light BG Tabs */}
       <UseCases />
 
-      {/* Section 10: Features Grid — Dark BG */}
-      <FeaturesGrid />
-
-      {/* Section 11: Testimonials — Light BG Carousel */}
+      {/* Section 10: Testimonials — Light BG Carousel */}
       <Testimonials />
 
       {/* Section 12: Geo CTA Section — Dark BG */}
