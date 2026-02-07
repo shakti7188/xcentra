@@ -74,17 +74,18 @@ export default function GlobalCards() {
       <div ref={sectionRef}>
         <div className="text-center mb-16">
           <ScrollReveal>
-            <Badge variant="live" className="mb-4">
-              Live Today
+            <Badge variant="accent" className="mb-4">
+              Global Cards
             </Badge>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-              Xcentra Global Cards
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight mb-4">
+              Xcentra{" "}
+              <span className="gradient-text">Global Cards</span>
             </h2>
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
-            <p className="text-text-secondary text-lg max-w-2xl mx-auto">
+            <p className="text-lg text-text-secondary max-w-2xl mx-auto">
               Virtual and physical debit cards that let you pay for coffee,
               groceries, travel, subscriptions, and daily expenses.
             </p>

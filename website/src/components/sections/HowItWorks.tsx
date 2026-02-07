@@ -2,6 +2,7 @@
 
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import ScrollReveal from "@/components/animations/ScrollReveal";
+import Badge from "@/components/ui/Badge";
 
 /* Premium 3D-gradient SVG icons */
 const PremiumWalletIcon = () => (
@@ -123,17 +124,17 @@ export default function HowItWorks() {
     <SectionWrapper theme="light">
       <div className="text-center mb-16">
         <ScrollReveal>
-          <p className="text-accent text-sm font-medium uppercase tracking-widest mb-3">
-            Simple Process
-          </p>
+          <Badge variant="accent" className="mb-4">
+            How It Works
+          </Badge>
         </ScrollReveal>
         <ScrollReveal delay={0.1}>
-          <h2 className="text-3xl sm:text-4xl lg:text-[3.25rem] font-medium mb-6 text-text-dark">
-            How Xcentra <span className="text-accent">Works</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight mb-4 text-text-dark">
+            How Xcentra <span className="gradient-text">Works</span>
           </h2>
         </ScrollReveal>
         <ScrollReveal delay={0.2}>
-          <p className="text-[#474a52] text-[17.5px] leading-[1.7] max-w-2xl mx-auto">
+          <p className="text-lg text-text-muted max-w-2xl mx-auto">
             From stablecoins to spending money in four simple steps. No manual
             conversions, no complicated processes.
           </p>

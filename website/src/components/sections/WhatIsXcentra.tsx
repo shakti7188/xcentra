@@ -117,9 +117,9 @@ export default function WhatIsXcentra() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium leading-tight mb-6 text-black">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight mb-4 text-text-dark">
               Direct Stablecoin Spending for{" "}
-              <span className="text-accent">Your Daily Life</span>
+              <span className="gradient-text">Your Daily Life</span>
             </h2>
           </ScrollReveal>
 

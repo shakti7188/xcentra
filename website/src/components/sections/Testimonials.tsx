@@ -141,14 +141,15 @@ export default function Testimonials() {
           </div>
         </ScrollReveal>
         <ScrollReveal delay={0.1}>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-black">
-            Loved by Users Worldwide
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-text-dark mb-4">
+            Loved by Users{" "}
+            <span className="gradient-text">Worldwide</span>
           </h2>
         </ScrollReveal>
         <ScrollReveal delay={0.2}>
-          <p className="text-gray-600 text-lg mt-3 max-w-xl font-medium">
+          <p className="text-lg text-text-muted max-w-xl">
             Real success stories from people that trust Xcentra for seamless
-            and borderless payments
+            and borderless payments.
           </p>
         </ScrollReveal>
       </div>

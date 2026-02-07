@@ -52,12 +52,12 @@ export default function WhyChoose() {
       <div className="relative z-10">
         <div className="text-center mb-16">
           <ScrollReveal>
-            <p className="text-accent text-sm font-medium uppercase tracking-widest mb-3">
+            <Badge variant="accent" className="mb-4">
               Why Xcentra
-            </p>
+            </Badge>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight mb-4">
               Why Choose Xcentra for{" "}
               <span className="gradient-text">Stablecoin Spending?</span>
             </h2>
@@ -92,7 +92,7 @@ export default function WhyChoose() {
                   </div>
                   <div>
                     <h3
-                      className={`font-bold text-text-primary mb-3 ${
+                      className={`font-semibold text-text-primary mb-3 ${
                         isLarge ? "text-2xl lg:text-3xl" : "text-xl"
                       }`}
                     >

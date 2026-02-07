@@ -245,7 +245,7 @@ export default function FeaturesGrid() {
             <Badge variant="accent" className="mb-4">
               Core Capabilities
             </Badge>
-            <h2 className="text-3xl sm:text-4xl lg:text-[3.25rem] font-medium tracking-tight mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight mb-4">
               Everything You Need,{" "}
               <span className="gradient-text">Nothing You Don&apos;t</span>
             </h2>
