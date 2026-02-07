@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
@@ -9,75 +8,10 @@ import FloatingElement from "@/components/animations/FloatingElement";
 import GravityGrid from "@/components/animations/GravityGrid";
 import TypewriterText from "@/components/animations/TypewriterText";
 import MagneticElement from "@/components/animations/MagneticElement";
-import { CheckCircle, ArrowRight, Loader2 } from "lucide-react";
-
-function WaitlistForm() {
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
-    setLoading(true);
-    // Simulate API call
-    setTimeout(() => {
-      setLoading(false);
-      setSubmitted(true);
-    }, 1200);
-  };
-
-  if (submitted) {
-    return (
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="flex items-center gap-3 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl px-6 py-4"
-      >
-        <div className="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
-          <CheckCircle className="w-5 h-5 text-emerald-400" />
-        </div>
-        <div>
-          <p className="text-white font-semibold text-sm">You&apos;re on the list!</p>
-          <p className="text-text-secondary text-xs">We&apos;ll notify you when your card is ready.</p>
-        </div>
-      </motion.div>
-    );
-  }
-
-  return (
-    <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 w-full max-w-lg">
-      <div className="flex-1 relative">
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Enter your email"
-          required
-          className="w-full bg-white/[0.06] border border-white/10 rounded-xl px-5 py-3.5 text-white placeholder-text-muted text-sm focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-all"
-        />
-      </div>
-      <button
-        type="submit"
-        disabled={loading}
-        className="inline-flex items-center justify-center gap-2 bg-accent text-black font-bold px-7 py-3.5 rounded-xl hover:bg-accent-light transition-all duration-300 text-sm disabled:opacity-70 cursor-pointer"
-      >
-        {loading ? (
-          <Loader2 className="w-4 h-4 animate-spin" />
-        ) : (
-          <>
-            Join Waitlist
-            <ArrowRight className="w-4 h-4" />
-          </>
-        )}
-      </button>
-    </form>
-  );
-}
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-bg-primary pt-20">
+    <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-bg-primary pt-20">
       {/* Subtle dot grid that reacts to cursor — antigravity style */}
       <GravityGrid
         dotColor="rgba(245, 166, 35, 0.08)"
@@ -93,7 +27,7 @@ export default function Hero() {
         <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[100px]" />
       </div>
 
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 py-20">
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 pt-16 pb-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left: Text Content */}
           <motion.div
@@ -157,12 +91,11 @@ export default function Hero() {
               expats, and the modern digital economy.
             </motion.p>
 
-            {/* CTA Row: Get Card + Waitlist Form */}
+            {/* CTA */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.85 }}
-              className="space-y-5"
             >
               <MagneticElement strength={0.15} radius={150}>
                 <Button variant="secondary" size="lg" href="/cards" className="group">
@@ -172,11 +105,6 @@ export default function Hero() {
                   </svg>
                 </Button>
               </MagneticElement>
-
-              <div>
-                <p className="text-text-muted text-xs mb-2.5 uppercase tracking-widest font-medium">Or join the waitlist</p>
-                <WaitlistForm />
-              </div>
             </motion.div>
           </motion.div>
 

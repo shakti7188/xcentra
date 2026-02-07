@@ -100,9 +100,6 @@ export default function Navbar() {
 
         {/* Desktop CTA */}
         <div className="hidden lg:flex items-center gap-3">
-          <Button variant="ghost" size="sm" href="/contact">
-            Contact
-          </Button>
           <Button variant="secondary" size="sm" href="/cards">
             Get Xcentra Card
           </Button>
@@ -182,9 +179,6 @@ export default function Navbar() {
                 </div>
               ))}
               <div className="pt-4 space-y-3 border-t border-border-dark">
-                <Button variant="outline" size="md" className="w-full" href="/contact">
-                  Contact
-                </Button>
                 <Button variant="primary" size="md" className="w-full" href="/cards">
                   Get Xcentra Card
                 </Button>
