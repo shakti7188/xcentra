@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import Badge from "@/components/ui/Badge";
+import { useOrderForm } from "@/components/providers/OrderFormProvider";
 import {
   Building2,
   Plane,
@@ -121,6 +122,7 @@ const useCases = [
 export default function UseCases() {
   const [activeTab, setActiveTab] = useState("business");
   const activeCase = useCases.find((uc) => uc.id === activeTab)!;
+  const { openOrderForm } = useOrderForm();
 
   return (
     <section className="relative py-24 lg:py-32 bg-bg-light overflow-hidden">
@@ -259,13 +261,13 @@ export default function UseCases() {
                   transition={{ duration: 0.4, delay: 0.6 }}
                   className="mt-8 pt-6 border-t border-gray-100"
                 >
-                  <a
-                    href="/cards"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-text-dark hover:text-accent transition-colors group"
+                  <button
+                    onClick={() => openOrderForm("physical")}
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-text-dark hover:text-accent transition-colors group cursor-pointer"
                   >
                     Get started with Xcentra
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </a>
+                  </button>
                 </motion.div>
               </div>
             </div>

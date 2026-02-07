@@ -7,6 +7,7 @@ import ScrollReveal from "@/components/animations/ScrollReveal";
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
 import GravityGrid from "@/components/animations/GravityGrid";
+import { useOrderForm } from "@/components/providers/OrderFormProvider";
 import { Target, Users, Globe, Shield, Rocket, Heart } from "lucide-react";
 
 const values = [
@@ -68,6 +69,7 @@ const stats = [
 ];
 
 export default function AboutContent() {
+  const { openOrderForm } = useOrderForm();
   return (
     <>
       {/* Hero */}
@@ -95,7 +97,7 @@ export default function AboutContent() {
             </ScrollReveal>
             <ScrollReveal delay={0.3}>
               <div className="flex flex-wrap gap-4">
-                <Button variant="secondary" size="lg" href="/cards">
+                <Button variant="secondary" size="lg" onClick={() => openOrderForm("physical")}>
                   Get Started
                 </Button>
                 <Button variant="outline-light" size="lg" href="/roadmap">
@@ -232,7 +234,7 @@ export default function AboutContent() {
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Button variant="secondary" size="lg" href="/cards">
+              <Button variant="secondary" size="lg" onClick={() => openOrderForm("physical")}>
                 Get Xcentra Card
               </Button>
               <Button variant="outline-light" size="lg" href="/contact">

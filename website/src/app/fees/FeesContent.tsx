@@ -6,6 +6,7 @@ import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
 import GravityGrid from "@/components/animations/GravityGrid";
 import { CheckCircle, XCircle, Minus } from "lucide-react";
+import { useOrderForm } from "@/components/providers/OrderFormProvider";
 
 const feeCategories = [
   {
@@ -59,6 +60,8 @@ const comparisonData = [
 ];
 
 export default function FeesContent() {
+  const { openOrderForm } = useOrderForm();
+
   return (
     <>
       {/* Hero */}
@@ -229,7 +232,7 @@ export default function FeesContent() {
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Button variant="secondary" size="lg" href="/cards">
+              <Button variant="secondary" size="lg" onClick={() => openOrderForm("physical")}>
                 Get Xcentra Card
               </Button>
               <Button variant="outline-light" size="lg" href="/contact">

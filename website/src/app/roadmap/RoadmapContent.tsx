@@ -5,6 +5,7 @@ import ScrollReveal from "@/components/animations/ScrollReveal";
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
 import GravityGrid from "@/components/animations/GravityGrid";
+import { useOrderForm } from "@/components/providers/OrderFormProvider";
 import { roadmapPhases } from "@/lib/constants/roadmap";
 import {
   CheckCircle,
@@ -42,6 +43,7 @@ const statusConfig = {
 };
 
 export default function RoadmapContent() {
+  const { openOrderForm } = useOrderForm();
   return (
     <>
       {/* Hero */}
@@ -136,9 +138,9 @@ export default function RoadmapContent() {
                         variant="secondary"
                         size="sm"
                         className="mt-6"
-                        href="/cards"
+                        onClick={() => openOrderForm("physical")}
                       >
-                        Get Started
+                        Get Xcentra Card
                         <ArrowRight className="h-4 w-4" />
                       </Button>
                     )}
@@ -178,7 +180,7 @@ export default function RoadmapContent() {
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Button variant="secondary" size="lg" href="/cards">
+              <Button variant="secondary" size="lg" onClick={() => openOrderForm("physical")}>
                 Get Xcentra Card
               </Button>
               <Button variant="outline-light" size="lg" href="/contact">

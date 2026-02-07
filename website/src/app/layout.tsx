@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import OrderFormProvider from "@/components/providers/OrderFormProvider";
 import { homeMetadata } from "@/lib/seo/metadata";
 import { organizationSchema, websiteSchema } from "@/lib/seo/schemas";
 
@@ -51,9 +52,11 @@ export default function RootLayout({
         />
       </head>
       <body className={`${plusJakarta.variable} antialiased`}>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        <OrderFormProvider>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+        </OrderFormProvider>
       </body>
     </html>
   );

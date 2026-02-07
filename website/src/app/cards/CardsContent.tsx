@@ -1,11 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
 import GravityGrid from "@/components/animations/GravityGrid";
+import CardVisual from "@/components/ui/CardVisual";
+import { useOrderForm } from "@/components/providers/OrderFormProvider";
 import {
   CreditCard,
   Smartphone,
@@ -20,53 +21,67 @@ import {
   Coffee,
   Tv,
   CheckCircle,
+  Crown,
+  ArrowRight,
 } from "lucide-react";
 
 const cardTypes = [
   {
+    variant: "gold" as const,
+    formType: "virtual" as const,
     name: "Virtual Card",
+    tagline: "Instant & Digital",
     description:
-      "Instant digital card for online purchases, subscriptions, and digital payments. Ready in seconds.",
-    image: "/images/stock/xcentra-card-gold.png",
+      "Get a digital card in seconds. Perfect for online purchases, subscriptions, and mobile payments via Apple Pay & Google Pay.",
     features: [
-      "Instant issuance",
-      "Online & app purchases",
+      "Instant issuance — ready in 30 seconds",
+      "Online & in-app purchases",
       "Subscription management",
-      "Apple Pay & Google Pay",
+      "Apple Pay & Google Pay compatible",
     ],
     badge: "Most Popular",
-    badgeStyle: "bg-accent/90 text-black",
-    badgeIcon: "★",
+    badgeColor: "bg-accent text-black",
+    icon: Smartphone,
+    price: "Free",
+    priceLabel: "No issuance fee",
   },
   {
+    variant: "black" as const,
+    formType: "physical" as const,
     name: "Physical Card",
+    tagline: "Tap. Pay. Done.",
     description:
-      "Premium physical debit card for in-store, ATM, and contactless payments worldwide.",
-    image: "/images/stock/xcentra-card-black.png",
+      "Premium contactless debit card for in-store, ATM, and worldwide payments. Shipped directly to your door.",
     features: [
-      "Contactless NFC payments",
-      "ATM withdrawals",
-      "In-store purchases",
-      "Global merchant acceptance",
+      "Contactless NFC tap-to-pay",
+      "ATM withdrawals worldwide",
+      "In-store & POS payments",
+      "150M+ merchant acceptance",
     ],
     badge: "Recommended",
-    badgeStyle: "bg-black text-white",
-    badgeIcon: "◆",
+    badgeColor: "bg-white text-black",
+    icon: CreditCard,
+    price: "$10",
+    priceLabel: "One-time fee",
   },
   {
+    variant: "platinum" as const,
+    formType: "premium" as const,
     name: "Premium Card",
+    tagline: "Exclusive & Elevated",
     description:
-      "Exclusive card with higher limits, priority support, and premium benefits for power users.",
-    image: "/images/stock/xcentra-card-platinum.png",
+      "Unlock higher limits, priority 24/7 support, exclusive cashback, and premium lifestyle benefits.",
     features: [
-      "Higher spending limits",
-      "Priority 24/7 support",
+      "Higher spending & ATM limits",
+      "Priority 24/7 concierge support",
       "Exclusive cashback rewards",
       "Airport lounge access",
     ],
     badge: "Launching Soon",
-    badgeStyle: "bg-white/90 text-gray-700 border border-gray-200",
-    badgeIcon: "→",
+    badgeColor: "bg-white/10 text-white/80 border border-white/20",
+    icon: Crown,
+    price: "TBA",
+    priceLabel: "Coming soon",
   },
 ];
 
@@ -125,10 +140,12 @@ const useCases = [
 ];
 
 export default function CardsContent() {
+  const { openOrderForm } = useOrderForm();
+
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[65vh] flex items-center bg-bg-primary overflow-hidden pt-32 pb-20">
+      <section className="relative min-h-[60vh] flex items-center bg-bg-primary overflow-hidden pt-32 pb-16">
         <GravityGrid dotColor="rgba(245,166,35,0.3)" />
         <div className="relative z-10 mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-16">
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -153,31 +170,35 @@ export default function CardsContent() {
               </ScrollReveal>
               <ScrollReveal delay={0.3}>
                 <div className="flex flex-wrap gap-4">
-                  <Button variant="secondary" size="lg" href="/contact">
+                  <Button variant="secondary" size="lg" onClick={() => openOrderForm("physical")}>
                     Order Physical Card
                   </Button>
-                  <Button variant="outline-light" size="lg" href="/contact">
+                  <Button variant="outline-light" size="lg" onClick={() => openOrderForm("virtual")}>
                     Get Virtual Card
                   </Button>
                 </div>
               </ScrollReveal>
             </div>
             <ScrollReveal delay={0.2}>
-              <div className="relative h-[350px] sm:h-[400px]" style={{ perspective: "800px" }}>
-                <div
-                  className="relative w-full h-full"
-                  style={{
-                    transform: "rotateX(10deg) rotateY(-10deg)",
-                    transformStyle: "preserve-3d",
-                  }}
-                >
-                  <Image
-                    src="/images/stock/xcentra-card-black.png"
-                    alt="Xcentra Card"
-                    fill
-                    className="object-contain rounded-2xl"
-                    priority
-                  />
+              <div className="flex justify-center md:justify-end">
+                <div className="relative" style={{ perspective: "1000px" }}>
+                  {/* Back card — Gold */}
+                  <div
+                    className="absolute -top-5 -left-5 opacity-50 blur-[0.3px]"
+                    style={{
+                      transform: "rotateX(6deg) rotateY(-4deg) rotateZ(-4deg)",
+                    }}
+                  >
+                    <CardVisual variant="gold" size="sm" />
+                  </div>
+                  {/* Front card — Black */}
+                  <div
+                    style={{
+                      transform: "rotateX(5deg) rotateY(-6deg)",
+                    }}
+                  >
+                    <CardVisual variant="black" size="md" />
+                  </div>
                 </div>
               </div>
             </ScrollReveal>
@@ -185,7 +206,7 @@ export default function CardsContent() {
         </div>
       </section>
 
-      {/* Card Types */}
+      {/* Card Types — Premium Redesign */}
       <SectionWrapper theme="light">
         <div className="text-center mb-16">
           <ScrollReveal>
@@ -194,57 +215,103 @@ export default function CardsContent() {
             </Badge>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-text-dark mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-text-dark mb-4">
               A Card for Every <span className="text-accent">Lifestyle</span>
             </h2>
           </ScrollReveal>
+          <ScrollReveal delay={0.15}>
+            <p className="text-lg text-text-muted max-w-2xl mx-auto">
+              From instant digital cards to premium physical cards with exclusive benefits.
+            </p>
+          </ScrollReveal>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {cardTypes.map((card, i) => (
-            <ScrollReveal key={card.name} delay={i * 0.15}>
-              <div className="bg-white rounded-3xl overflow-hidden shadow-lg shadow-black/5 border border-black/5 h-full flex flex-col">
-                <div className="relative h-[220px]">
-                  <Image
-                    src={card.image}
-                    alt={card.name}
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <span className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-[11px] font-semibold tracking-wide shadow-lg ${card.badgeStyle}`}>
-                      <span className="text-[10px]">{card.badgeIcon}</span>
-                      {card.badge}
-                    </span>
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+          {cardTypes.map((card, i) => {
+            const Icon = card.icon;
+            return (
+              <ScrollReveal key={card.name} delay={i * 0.12}>
+                <div className="relative bg-white rounded-3xl overflow-hidden border border-black/[0.06] h-full flex flex-col shadow-xl shadow-black/[0.03] hover:shadow-2xl hover:shadow-black/[0.08] transition-shadow duration-300">
+                  {/* Card Visual Section — Dark BG */}
+                  <div className="relative bg-gradient-to-br from-[#0f1015] to-[#1a1d24] px-6 pt-8 pb-6 flex flex-col items-center">
+                    {/* Badge */}
+                    <div className="absolute top-4 left-4">
+                      <span
+                        className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-semibold tracking-wide shadow-lg ${card.badgeColor}`}
+                      >
+                        {card.badge}
+                      </span>
+                    </div>
+
+                    {/* Card Visual */}
+                    <div className="mt-4" style={{ perspective: "800px" }}>
+                      <div
+                        style={{
+                          transform: "rotateX(8deg) rotateY(-3deg)",
+                        }}
+                      >
+                        <CardVisual variant={card.variant} size="sm" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Content Section */}
+                  <div className="p-6 flex-1 flex flex-col">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
+                        <Icon className="h-5 w-5 text-accent" />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-semibold text-text-dark">
+                          {card.name}
+                        </h3>
+                        <p className="text-xs text-text-muted font-medium">
+                          {card.tagline}
+                        </p>
+                      </div>
+                    </div>
+
+                    <p className="text-text-muted text-sm leading-relaxed mb-5">
+                      {card.description}
+                    </p>
+
+                    <ul className="space-y-2.5 mb-6 flex-1">
+                      {card.features.map((feature) => (
+                        <li
+                          key={feature}
+                          className="flex items-start gap-2 text-sm text-text-muted"
+                        >
+                          <CheckCircle className="h-4 w-4 text-accent shrink-0 mt-0.5" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* Price + CTA */}
+                    <div className="pt-4 border-t border-black/[0.06]">
+                      <div className="flex items-baseline gap-2 mb-4">
+                        <span className="text-2xl font-bold text-text-dark">
+                          {card.price}
+                        </span>
+                        <span className="text-sm text-text-muted">
+                          {card.priceLabel}
+                        </span>
+                      </div>
+                      <Button
+                        variant="primary"
+                        size="md"
+                        className="w-full group"
+                        onClick={() => openOrderForm(card.formType)}
+                      >
+                        {card.formType === "premium" ? "Join Waitlist" : "Get This Card"}
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </Button>
+                    </div>
                   </div>
                 </div>
-                <div className="p-6 flex-1 flex flex-col">
-                  <h3 className="text-2xl font-semibold text-text-dark mb-2">
-                    {card.name}
-                  </h3>
-                  <p className="text-text-muted text-sm leading-relaxed mb-6">
-                    {card.description}
-                  </p>
-                  <ul className="space-y-3 mb-6 flex-1">
-                    {card.features.map((feature) => (
-                      <li key={feature} className="flex items-center gap-2 text-sm text-text-muted">
-                        <CheckCircle className="h-4 w-4 text-accent shrink-0" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <Button
-                    variant="primary"
-                    size="md"
-                    className="w-full"
-                    href="/contact"
-                  >
-                    Get This Card
-                  </Button>
-                </div>
-              </div>
-            </ScrollReveal>
-          ))}
+              </ScrollReveal>
+            );
+          })}
         </div>
       </SectionWrapper>
 
@@ -252,7 +319,7 @@ export default function CardsContent() {
       <SectionWrapper theme="dark">
         <div className="text-center mb-16">
           <ScrollReveal>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight mb-6">
               Built for <span className="gradient-text">Real Life</span>
             </h2>
           </ScrollReveal>
@@ -289,7 +356,7 @@ export default function CardsContent() {
       <SectionWrapper theme="light">
         <div className="text-center mb-12">
           <ScrollReveal>
-            <h2 className="text-3xl sm:text-4xl font-medium text-text-dark mb-6">
+            <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-text-dark mb-6">
               Use Xcentra <span className="text-accent">Everywhere</span>
             </h2>
           </ScrollReveal>
@@ -316,7 +383,7 @@ export default function CardsContent() {
         <GravityGrid dotColor="rgba(245,166,35,0.2)" />
         <div className="relative z-10 mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
           <ScrollReveal>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight mb-6">
               Get Your Card <span className="gradient-text">Today</span>
             </h2>
           </ScrollReveal>
@@ -327,7 +394,7 @@ export default function CardsContent() {
             </p>
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
-            <Button variant="secondary" size="lg" href="/contact">
+            <Button variant="secondary" size="lg" onClick={() => openOrderForm("physical")}>
               Get Xcentra Card
             </Button>
           </ScrollReveal>

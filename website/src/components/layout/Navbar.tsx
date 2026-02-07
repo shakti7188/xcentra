@@ -7,11 +7,13 @@ import Image from "next/image";
 import Button from "@/components/ui/Button";
 import { mainNav } from "@/lib/constants/navigation";
 import Link from "next/link";
+import { useOrderForm } from "@/components/providers/OrderFormProvider";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const { openOrderForm } = useOrderForm();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -100,7 +102,7 @@ export default function Navbar() {
 
         {/* Desktop CTA */}
         <div className="hidden lg:flex items-center gap-3">
-          <Button variant="secondary" size="sm" href="/cards">
+          <Button variant="secondary" size="sm" onClick={() => openOrderForm("physical")}>
             Get Xcentra Card
           </Button>
         </div>
@@ -179,7 +181,7 @@ export default function Navbar() {
                 </div>
               ))}
               <div className="pt-4 space-y-3 border-t border-border-dark">
-                <Button variant="primary" size="md" className="w-full" href="/cards">
+                <Button variant="primary" size="md" className="w-full" onClick={() => { setIsMobileOpen(false); openOrderForm("physical"); }}>
                   Get Xcentra Card
                 </Button>
               </div>

@@ -5,6 +5,7 @@ import ScrollReveal from "@/components/animations/ScrollReveal";
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
 import GravityGrid from "@/components/animations/GravityGrid";
+import { useOrderForm } from "@/components/providers/OrderFormProvider";
 import Accordion from "@/components/ui/Accordion";
 
 const categories = [
@@ -121,6 +122,7 @@ const categories = [
 ];
 
 export default function FAQContent() {
+  const { openOrderForm } = useOrderForm();
   return (
     <>
       {/* Hero */}
@@ -183,7 +185,7 @@ export default function FAQContent() {
               <Button variant="secondary" size="lg" href="/contact">
                 Contact Support
               </Button>
-              <Button variant="outline-light" size="lg" href="/cards">
+              <Button variant="outline-light" size="lg" onClick={() => openOrderForm("physical")}>
                 Get Xcentra Card
               </Button>
             </div>

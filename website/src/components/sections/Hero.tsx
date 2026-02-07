@@ -1,15 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
 import FloatingElement from "@/components/animations/FloatingElement";
 import GravityGrid from "@/components/animations/GravityGrid";
 import TypewriterText from "@/components/animations/TypewriterText";
 import MagneticElement from "@/components/animations/MagneticElement";
+import CardVisual from "@/components/ui/CardVisual";
+import { useOrderForm } from "@/components/providers/OrderFormProvider";
 
 export default function Hero() {
+  const { openOrderForm } = useOrderForm();
+
   return (
     <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-bg-primary pt-20">
       {/* Subtle dot grid that reacts to cursor — antigravity style */}
@@ -98,7 +101,12 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.85 }}
             >
               <MagneticElement strength={0.15} radius={150}>
-                <Button variant="secondary" size="lg" href="/cards" className="group">
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  className="group"
+                  onClick={() => openOrderForm("physical")}
+                >
                   Get Xcentra Card
                   <svg className="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -108,7 +116,7 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Right: 3D Flipping Card */}
+          {/* Right: Stacked Card Visual */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -116,36 +124,45 @@ export default function Hero() {
             className="flex justify-center lg:justify-end"
           >
             <FloatingElement amplitude={8} duration={4}>
-              <div className="perspective">
+              <div className="relative" style={{ perspective: "1200px" }}>
+                {/* Back card — Gold (offset) */}
                 <motion.div
-                  className="preserve-3d relative w-[360px] h-[226px] sm:w-[430px] sm:h-[270px]"
-                  animate={{ rotateY: [0, 180, 360] }}
+                  className="absolute -top-4 -left-4 sm:-top-6 sm:-left-6"
+                  style={{
+                    transform: "rotateX(8deg) rotateY(-5deg) rotateZ(-3deg)",
+                    transformStyle: "preserve-3d",
+                  }}
+                  animate={{
+                    rotateZ: [-3, -1, -3],
+                  }}
                   transition={{
-                    duration: 4,
+                    duration: 6,
                     ease: "easeInOut",
                     repeat: Infinity,
-                    repeatDelay: 3,
                   }}
                 >
-                  {/* Front — Black card */}
-                  <div className="absolute inset-0 backface-hidden">
-                    <Image
-                      src="/images/stock/xcentra-card-black.png"
-                      alt="Xcentra Physical Card"
-                      fill
-                      className="object-contain drop-shadow-[0_20px_40px_rgba(245,166,35,0.15)]"
-                      priority
-                    />
+                  <div className="opacity-60 blur-[0.5px]">
+                    <CardVisual variant="gold" size="md" />
                   </div>
-                  {/* Back — Gold card */}
-                  <div className="absolute inset-0 backface-hidden rotate-y-180">
-                    <Image
-                      src="/images/stock/xcentra-card-gold.png"
-                      alt="Xcentra Virtual Card"
-                      fill
-                      className="object-contain drop-shadow-[0_20px_40px_rgba(245,166,35,0.15)]"
-                    />
-                  </div>
+                </motion.div>
+
+                {/* Front card — Black (main) */}
+                <motion.div
+                  style={{
+                    transform: "rotateX(5deg) rotateY(-8deg)",
+                    transformStyle: "preserve-3d",
+                  }}
+                  animate={{
+                    rotateY: [-8, -4, -8],
+                    rotateX: [5, 3, 5],
+                  }}
+                  transition={{
+                    duration: 6,
+                    ease: "easeInOut",
+                    repeat: Infinity,
+                  }}
+                >
+                  <CardVisual variant="black" size="md" />
                 </motion.div>
               </div>
             </FloatingElement>

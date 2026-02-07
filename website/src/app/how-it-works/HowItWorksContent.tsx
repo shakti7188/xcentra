@@ -5,6 +5,7 @@ import ScrollReveal from "@/components/animations/ScrollReveal";
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
 import GravityGrid from "@/components/animations/GravityGrid";
+import { useOrderForm } from "@/components/providers/OrderFormProvider";
 import {
   Wallet,
   CreditCard,
@@ -95,6 +96,7 @@ const benefits = [
 ];
 
 export default function HowItWorksContent() {
+  const { openOrderForm } = useOrderForm();
   return (
     <>
       {/* Hero */}
@@ -216,7 +218,7 @@ export default function HowItWorksContent() {
             </p>
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
-            <Button variant="secondary" size="lg" href="/cards">
+            <Button variant="secondary" size="lg" onClick={() => openOrderForm("physical")}>
               Get Xcentra Card
             </Button>
           </ScrollReveal>

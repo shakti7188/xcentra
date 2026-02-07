@@ -2,11 +2,12 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import Image from "next/image";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
+import CardVisual from "@/components/ui/CardVisual";
+import { useOrderForm } from "@/components/providers/OrderFormProvider";
 import { globalCardBenefits } from "@/lib/constants/features";
 import { Smartphone, Globe, Zap, Coffee } from "lucide-react";
 
@@ -28,21 +29,22 @@ const cards = [
   {
     id: "physical",
     label: "Xcentra Physical Card",
-    image: "/images/stock/xcentra-card-black.png",
+    variant: "black" as const,
   },
   {
     id: "virtual",
     label: "Xcentra Virtual Card",
-    image: "/images/stock/xcentra-card-gold.png",
+    variant: "gold" as const,
   },
   {
     id: "premium",
     label: "Xcentra Premium Card",
-    image: "/images/stock/xcentra-card-platinum.png",
+    variant: "platinum" as const,
   },
 ];
 
 export default function GlobalCards() {
+  const { openOrderForm } = useOrderForm();
   const sectionRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -113,15 +115,7 @@ export default function GlobalCards() {
                 }}
                 className="absolute inset-0 z-10"
               >
-                <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.5)]">
-                  <Image
-                    src={cards[0].image}
-                    alt={cards[0].label}
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-br from-black/20 via-transparent to-black/40" />
-                </div>
+                <CardVisual variant={cards[0].variant} size="sm" className="w-full h-full" />
               </motion.div>
 
               {/* Card 1 — Middle */}
@@ -133,16 +127,7 @@ export default function GlobalCards() {
                 }}
                 className="absolute inset-0 z-20"
               >
-                <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.6)]">
-                  <Image
-                    src={cards[1].image}
-                    alt={cards[1].label}
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-br from-black/15 via-transparent to-black/30" />
-                  <div className="absolute inset-0 rounded-2xl ring-1 ring-white/10" />
-                </div>
+                <CardVisual variant={cards[1].variant} size="sm" className="w-full h-full" />
               </motion.div>
 
               {/* Card 2 — Top (front) */}
@@ -154,16 +139,7 @@ export default function GlobalCards() {
                 }}
                 className="absolute inset-0 z-30"
               >
-                <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-[0_35px_80px_rgba(245,166,35,0.15)]">
-                  <Image
-                    src={cards[2].image}
-                    alt={cards[2].label}
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-br from-black/10 via-transparent to-black/25" />
-                  <div className="absolute inset-0 rounded-2xl ring-1 ring-accent/20" />
-                </div>
+                <CardVisual variant={cards[2].variant} size="sm" className="w-full h-full" />
               </motion.div>
 
               {/* Ambient glow beneath the stack */}
@@ -200,7 +176,7 @@ export default function GlobalCards() {
               );
             })}
             <ScrollReveal delay={0.5}>
-              <Button variant="secondary" size="lg" className="mt-4" href="/cards">
+              <Button variant="secondary" size="lg" className="mt-4" onClick={() => openOrderForm("physical")}>
                 Get Xcentra Card
                 <svg
                   className="h-4 w-4"

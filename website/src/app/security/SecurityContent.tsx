@@ -5,6 +5,7 @@ import ScrollReveal from "@/components/animations/ScrollReveal";
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
 import GravityGrid from "@/components/animations/GravityGrid";
+import { useOrderForm } from "@/components/providers/OrderFormProvider";
 import {
   Shield,
   Lock,
@@ -100,6 +101,7 @@ const userTips = [
 ];
 
 export default function SecurityContent() {
+  const { openOrderForm } = useOrderForm();
   return (
     <>
       {/* Hero */}
@@ -253,7 +255,7 @@ export default function SecurityContent() {
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Button variant="secondary" size="lg" href="/cards">
+              <Button variant="secondary" size="lg" onClick={() => openOrderForm("physical")}>
                 Get Xcentra Card
               </Button>
               <Button variant="outline-light" size="lg" href="/fees">

@@ -6,6 +6,7 @@ import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import CursorGlow from "@/components/animations/CursorGlow";
+import { useOrderForm } from "@/components/providers/OrderFormProvider";
 import {
   Check,
   Circle,
@@ -141,6 +142,7 @@ function ProgressRail() {
 
 /* ─── Phase card — bento-inspired with milestone checklist ─── */
 function PhaseCard({ phase, index }: { phase: typeof phases[0]; index: number }) {
+  const { openOrderForm } = useOrderForm();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-60px" });
   const meta = statusMeta[phase.status];
@@ -290,7 +292,7 @@ function PhaseCard({ phase, index }: { phase: typeof phases[0]; index: number })
           {/* CTA */}
           <div className="mt-6">
             {phase.status === "live" ? (
-              <Button variant="secondary" size="sm" href="/cards" className="group/btn">
+              <Button variant="secondary" size="sm" onClick={() => openOrderForm("physical")} className="group/btn">
                 Get Xcentra Card
                 <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/btn:translate-x-0.5" />
               </Button>
