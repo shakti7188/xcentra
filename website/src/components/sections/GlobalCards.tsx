@@ -27,21 +27,18 @@ const iconColors: Record<string, { bg: string; text: string }> = {
 const cards = [
   {
     id: "physical",
-    label: "Xcentra Physical",
-    type: "DEBIT",
-    image: "/images/stock/debit-card-black.jpg",
+    label: "Xcentra Physical Card",
+    image: "/images/stock/xcentra-card-black.png",
   },
   {
     id: "virtual",
-    label: "Xcentra Virtual",
-    type: "VIRTUAL",
-    image: "/images/stock/debit-card-gold.jpg",
+    label: "Xcentra Virtual Card",
+    image: "/images/stock/xcentra-card-gold.png",
   },
   {
     id: "premium",
-    label: "Xcentra Premium",
-    type: "PREMIUM",
-    image: "/images/stock/debit-card-platinum.jpg",
+    label: "Xcentra Premium Card",
+    image: "/images/stock/xcentra-card-platinum.png",
   },
 ];
 
@@ -52,27 +49,25 @@ export default function GlobalCards() {
     offset: ["start end", "end start"],
   });
 
-  // Card 1 (left): spreads left and rotates counter-clockwise
-  const card1X = useTransform(scrollYProgress, [0.1, 0.25, 0.4, 0.55], [0, -60, -160, -220]);
-  const card1Y = useTransform(scrollYProgress, [0.1, 0.25, 0.4, 0.55], [0, -20, -30, -10]);
-  const card1Rotate = useTransform(scrollYProgress, [0.1, 0.25, 0.4, 0.55], [0, -8, -18, -24]);
-  const card1Scale = useTransform(scrollYProgress, [0.1, 0.4], [0.9, 0.95]);
-  const card1Opacity = useTransform(scrollYProgress, [0.05, 0.15], [0.4, 1]);
+  // Bottom card (card 0): starts buried, slides down-left
+  const card0Y = useTransform(scrollYProgress, [0.15, 0.35, 0.55], [0, 40, 80]);
+  const card0X = useTransform(scrollYProgress, [0.15, 0.35, 0.55], [0, -20, -40]);
+  const card0Rotate = useTransform(scrollYProgress, [0.15, 0.35, 0.55], [0, -4, -8]);
 
-  // Card 2 (center): stays centered, scales up slightly
-  const card2Y = useTransform(scrollYProgress, [0.1, 0.3, 0.5], [30, 0, -15]);
-  const card2Scale = useTransform(scrollYProgress, [0.1, 0.3, 0.5], [0.95, 1.05, 1.08]);
-  const card2Rotate = useTransform(scrollYProgress, [0.1, 0.3, 0.5], [0, 1, 0]);
+  // Middle card (card 1): stays mostly centered
+  const card1Y = useTransform(scrollYProgress, [0.15, 0.35, 0.55], [0, 0, 0]);
+  const card1X = useTransform(scrollYProgress, [0.15, 0.35, 0.55], [0, 0, 0]);
+  const card1Rotate = useTransform(scrollYProgress, [0.15, 0.35, 0.55], [0, 0, 0]);
 
-  // Card 3 (right): spreads right and rotates clockwise
-  const card3X = useTransform(scrollYProgress, [0.1, 0.25, 0.4, 0.55], [0, 60, 160, 220]);
-  const card3Y = useTransform(scrollYProgress, [0.1, 0.25, 0.4, 0.55], [0, -15, -25, -5]);
-  const card3Rotate = useTransform(scrollYProgress, [0.1, 0.25, 0.4, 0.55], [0, 8, 18, 24]);
-  const card3Scale = useTransform(scrollYProgress, [0.1, 0.4], [0.9, 0.95]);
-  const card3Opacity = useTransform(scrollYProgress, [0.05, 0.15], [0.4, 1]);
+  // Top card (card 2): slides up-right
+  const card2Y = useTransform(scrollYProgress, [0.15, 0.35, 0.55], [0, -40, -80]);
+  const card2X = useTransform(scrollYProgress, [0.15, 0.35, 0.55], [0, 20, 40]);
+  const card2Rotate = useTransform(scrollYProgress, [0.15, 0.35, 0.55], [0, 4, 8]);
 
-  // Shadow/glow intensity for center card
-  const glowOpacity = useTransform(scrollYProgress, [0.1, 0.4], [0.1, 0.4]);
+  // Overall scene 3D rotation on scroll
+  const sceneRotateX = useTransform(scrollYProgress, [0.1, 0.4], [55, 35]);
+  const sceneRotateZ = useTransform(scrollYProgress, [0.1, 0.4], [-25, -15]);
+  const sceneScale = useTransform(scrollYProgress, [0.1, 0.3, 0.5], [0.85, 1, 1.05]);
 
   return (
     <SectionWrapper theme="dark">
@@ -91,128 +86,87 @@ export default function GlobalCards() {
           <ScrollReveal delay={0.2}>
             <p className="text-text-secondary text-lg max-w-2xl mx-auto">
               Virtual and physical debit cards that let you pay for coffee,
-              groceries, travel, subscriptions, and daily expenses. Your stablecoin
-              balance converts to local currency instantly.
+              groceries, travel, subscriptions, and daily expenses.
             </p>
           </ScrollReveal>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
-          {/* Left: Stacked cards that fan out on scroll */}
-          <div className="relative flex justify-center items-center min-h-[420px] sm:min-h-[480px] lg:min-h-[520px]">
-            {/* Card 1 — Back left */}
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-16 items-center">
+          {/* Left: 3D Tilted Card Stack */}
+          <div className="relative flex justify-center items-center min-h-[400px] sm:min-h-[480px] lg:min-h-[540px]" style={{ perspective: "1200px" }}>
             <motion.div
               style={{
-                x: card1X,
-                y: card1Y,
-                rotate: card1Rotate,
-                scale: card1Scale,
-                opacity: card1Opacity,
+                rotateX: sceneRotateX,
+                rotateZ: sceneRotateZ,
+                scale: sceneScale,
+                transformStyle: "preserve-3d",
               }}
-              className="absolute z-10"
+              className="relative w-[320px] sm:w-[380px] h-[200px] sm:h-[240px]"
             >
-              <div className="relative w-[280px] sm:w-[340px] h-[176px] sm:h-[214px] rounded-2xl overflow-hidden shadow-2xl shadow-black/50">
-                <Image
-                  src={cards[0].image}
-                  alt={cards[0].label}
-                  fill
-                  className="object-cover"
-                />
-                {/* Card overlay with branding */}
-                <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-transparent to-black/60" />
-                <div className="absolute top-4 left-4 flex items-center gap-2">
-                  <div className="h-5 w-5 rounded-md bg-accent flex items-center justify-center">
-                    <span className="text-bg-primary font-bold text-[8px]">X</span>
-                  </div>
-                  <span className="text-white/80 text-xs font-semibold">{cards[0].label}</span>
-                </div>
-                <div className="absolute bottom-4 right-4">
-                  <span className="text-white/50 text-[10px] font-semibold tracking-wider">{cards[0].type}</span>
-                </div>
-                <div className="absolute bottom-4 left-4">
-                  <span className="text-white/40 text-xs font-mono">•••• •••• •••• 7291</span>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Card 2 — Center (main, on top) */}
-            <motion.div
-              style={{
-                y: card2Y,
-                scale: card2Scale,
-                rotate: card2Rotate,
-              }}
-              className="absolute z-20"
-            >
-              <div className="relative w-[300px] sm:w-[360px] h-[189px] sm:h-[227px] rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src={cards[1].image}
-                  alt={cards[1].label}
-                  fill
-                  className="object-cover"
-                />
-                {/* Accent glow border effect */}
-                <motion.div
-                  className="absolute inset-0 rounded-2xl border-2 border-accent/30"
-                  style={{ opacity: glowOpacity }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-transparent to-black/50" />
-                <div className="absolute top-5 left-5 flex items-center gap-2">
-                  <div className="h-6 w-6 rounded-md bg-accent flex items-center justify-center">
-                    <span className="text-bg-primary font-bold text-[10px]">X</span>
-                  </div>
-                  <span className="text-white text-sm font-semibold">{cards[1].label}</span>
-                </div>
-                <div className="absolute top-5 right-5">
-                  <Badge variant="accent" className="text-[10px] py-0.5 px-2">{cards[1].type}</Badge>
-                </div>
-                <div className="absolute bottom-5 left-5">
-                  <p className="text-white/50 text-xs tracking-[0.25em] font-mono">•••• •••• •••• 3184</p>
-                  <p className="text-white text-sm font-medium mt-1">Global Citizen</p>
-                </div>
-                <div className="absolute bottom-5 right-5">
-                  <p className="text-accent text-sm font-semibold">$12,450.00</p>
-                </div>
-              </div>
-              {/* Glow shadow under center card */}
+              {/* Card 0 — Bottom (back) */}
               <motion.div
-                className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-3/4 h-8 bg-accent/20 rounded-full blur-xl"
-                style={{ opacity: glowOpacity }}
-              />
-            </motion.div>
+                style={{
+                  y: card0Y,
+                  x: card0X,
+                  rotate: card0Rotate,
+                }}
+                className="absolute inset-0 z-10"
+              >
+                <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.5)]">
+                  <Image
+                    src={cards[0].image}
+                    alt={cards[0].label}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-black/20 via-transparent to-black/40" />
+                </div>
+              </motion.div>
 
-            {/* Card 3 — Front right */}
-            <motion.div
-              style={{
-                x: card3X,
-                y: card3Y,
-                rotate: card3Rotate,
-                scale: card3Scale,
-                opacity: card3Opacity,
-              }}
-              className="absolute z-10"
-            >
-              <div className="relative w-[280px] sm:w-[340px] h-[176px] sm:h-[214px] rounded-2xl overflow-hidden shadow-2xl shadow-black/50">
-                <Image
-                  src={cards[2].image}
-                  alt={cards[2].label}
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-transparent to-black/60" />
-                <div className="absolute top-4 left-4 flex items-center gap-2">
-                  <div className="h-5 w-5 rounded-md bg-accent/80 flex items-center justify-center">
-                    <span className="text-bg-primary font-bold text-[8px]">X</span>
-                  </div>
-                  <span className="text-white/80 text-xs font-semibold">{cards[2].label}</span>
+              {/* Card 1 — Middle */}
+              <motion.div
+                style={{
+                  y: card1Y,
+                  x: card1X,
+                  rotate: card1Rotate,
+                }}
+                className="absolute inset-0 z-20"
+              >
+                <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.6)]">
+                  <Image
+                    src={cards[1].image}
+                    alt={cards[1].label}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-black/15 via-transparent to-black/30" />
+                  <div className="absolute inset-0 rounded-2xl ring-1 ring-white/10" />
                 </div>
-                <div className="absolute bottom-4 right-4">
-                  <span className="text-accent/60 text-[10px] font-semibold tracking-wider">{cards[2].type}</span>
+              </motion.div>
+
+              {/* Card 2 — Top (front) */}
+              <motion.div
+                style={{
+                  y: card2Y,
+                  x: card2X,
+                  rotate: card2Rotate,
+                }}
+                className="absolute inset-0 z-30"
+              >
+                <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-[0_35px_80px_rgba(245,166,35,0.15)]">
+                  <Image
+                    src={cards[2].image}
+                    alt={cards[2].label}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-black/10 via-transparent to-black/25" />
+                  <div className="absolute inset-0 rounded-2xl ring-1 ring-accent/20" />
                 </div>
-                <div className="absolute bottom-4 left-4">
-                  <span className="text-white/40 text-xs font-mono">•••• •••• •••• 5637</span>
-                </div>
-              </div>
+              </motion.div>
+
+              {/* Ambient glow beneath the stack */}
+              <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 w-[80%] h-16 bg-accent/15 rounded-full blur-2xl" />
             </motion.div>
           </div>
 
@@ -220,11 +174,16 @@ export default function GlobalCards() {
           <div className="space-y-6 pt-8 md:pt-0">
             {globalCardBenefits.map((benefit, index) => {
               const Icon = iconMap[benefit.icon] || Globe;
-              const colors = iconColors[benefit.icon] || { bg: "bg-accent/10", text: "text-accent" };
+              const colors = iconColors[benefit.icon] || {
+                bg: "bg-accent/10",
+                text: "text-accent",
+              };
               return (
                 <ScrollReveal key={benefit.title} delay={0.1 * index}>
                   <div className="flex gap-4 p-4 rounded-xl hover:bg-white/5 transition-colors group">
-                    <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${colors.bg} group-hover:scale-110 transition-transform`}>
+                    <div
+                      className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${colors.bg} group-hover:scale-110 transition-transform`}
+                    >
                       <Icon className={`h-6 w-6 ${colors.text}`} />
                     </div>
                     <div>
@@ -240,10 +199,20 @@ export default function GlobalCards() {
               );
             })}
             <ScrollReveal delay={0.5}>
-              <Button variant="secondary" size="lg" className="mt-4" href="#">
+              <Button variant="secondary" size="lg" className="mt-4" href="/cards">
                 Get Xcentra Card
-                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                <svg
+                  className="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
                 </svg>
               </Button>
             </ScrollReveal>

@@ -1,0 +1,21 @@
+{
+  "name": "Xcentra",
+  "short_name": "Xcentra",
+  "description": "Borderless Digital Finance — Spend stablecoins at 150M+ merchants worldwide",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0B10",
+  "theme_color": "#F5A623",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

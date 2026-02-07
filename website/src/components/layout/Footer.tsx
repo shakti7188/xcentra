@@ -6,18 +6,18 @@ import { Github, Twitter, Linkedin, Send } from "lucide-react";
 export default function Footer() {
   return (
     <footer className="bg-bg-primary border-t border-border-dark">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-16">
         {/* Main Footer */}
-        <div className="grid grid-cols-2 gap-8 py-16 md:grid-cols-5">
+        <div className="grid grid-cols-2 gap-8 py-16 md:grid-cols-6">
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-1">
             <div className="mb-4">
               <Image
                 src="/images/logos/xcentra-logo-white.png"
                 alt="Xcentra"
-                width={160}
-                height={46}
-                className="h-9 w-auto"
+                width={280}
+                height={80}
+                className="h-14 sm:h-16 w-auto"
               />
             </div>
             <p className="text-sm text-text-secondary leading-relaxed mb-6">
@@ -58,6 +58,23 @@ export default function Footer() {
             <h3 className="text-sm font-semibold text-text-primary mb-4">Company</h3>
             <ul className="space-y-3">
               {footerNav.company.map((item) => (
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    className="text-sm text-text-secondary hover:text-text-primary transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Resources */}
+          <div>
+            <h3 className="text-sm font-semibold text-text-primary mb-4">Resources</h3>
+            <ul className="space-y-3">
+              {footerNav.resources.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}

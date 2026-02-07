@@ -39,15 +39,15 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 py-4">
+      <nav className="mx-auto flex max-w-[1440px] items-center justify-between px-6 sm:px-10 lg:px-16 py-4">
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
             src="/images/logos/xcentra-logo-white.png"
             alt="Xcentra"
-            width={160}
-            height={46}
-            className="h-9 w-auto"
+            width={280}
+            height={80}
+            className="h-14 sm:h-16 w-auto"
             priority
           />
         </Link>
@@ -103,7 +103,7 @@ export default function Navbar() {
           <Button variant="ghost" size="sm" href="/contact">
             Contact
           </Button>
-          <Button variant="secondary" size="sm" href="#">
+          <Button variant="secondary" size="sm" href="/cards">
             Get Xcentra Card
           </Button>
         </div>
@@ -185,7 +185,7 @@ export default function Navbar() {
                 <Button variant="outline" size="md" className="w-full" href="/contact">
                   Contact
                 </Button>
-                <Button variant="primary" size="md" className="w-full" href="#">
+                <Button variant="primary" size="md" className="w-full" href="/cards">
                   Get Xcentra Card
                 </Button>
               </div>

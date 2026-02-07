@@ -31,42 +31,42 @@ export const whyChooseFeatures: Feature[] = [
   },
 ];
 
-export const paymentFeatures: Feature[] = [
+export const coreCapabilities: Feature[] = [
   {
     icon: "CreditCard",
-    title: "Multiple Payment Methods",
+    title: "Virtual & Physical Cards",
     description:
-      "Credit/debit cards, Apple Pay, Google Pay, and stablecoin payments — all in one place.",
+      "Instant virtual card for online shopping, or a premium physical card for in-store and ATM use. Compatible with Apple Pay and Google Pay.",
   },
   {
     icon: "ShieldCheck",
-    title: "Fraud Protection & Compliance",
+    title: "Bank-Grade Security",
     description:
-      "Enterprise-grade security with AI-powered fraud detection and full regulatory compliance.",
+      "2FA, biometric login, instant card freeze, and real-time fraud monitoring. Your funds are protected by enterprise-grade encryption.",
   },
   {
     icon: "RefreshCw",
-    title: "Recurring Payments & Subscriptions",
+    title: "Real-Time Conversion",
     description:
-      "Automate billing and boost customer retention with flexible subscription management.",
-  },
-  {
-    icon: "MousePointerClick",
-    title: "One-Click Checkout",
-    description:
-      "Reduce friction and increase conversions with seamless one-click payments.",
+      "Stablecoins convert to local currency at the point of sale — automatically. No manual off-ramping or pre-conversion needed.",
   },
   {
     icon: "BarChart3",
-    title: "Income & Expenses Tracker",
+    title: "Spending Analytics",
     description:
-      "Keep track of every transaction with built-in analytics and spending insights.",
+      "Track every transaction across currencies. Get spending insights, set budgets, and manage your card limits in real-time.",
   },
   {
-    icon: "Link",
-    title: "Crypto Connection",
+    icon: "Globe",
+    title: "Global Acceptance",
     description:
-      "Seamlessly connect your stablecoin holdings to real-world spending power.",
+      "Accepted everywhere card payments work — online and in-store, across 100+ countries. Powered by global card networks. Spend like a local, anywhere.",
+  },
+  {
+    icon: "DollarSign",
+    title: "Ultra-Low 0.5% Fee",
+    description:
+      "Just 0.5% conversion fee per transaction. No hidden charges, no monthly fees, no FX markups. Transparent pricing, always.",
   },
 ];
 

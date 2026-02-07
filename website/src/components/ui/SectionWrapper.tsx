@@ -11,8 +11,8 @@ const themeStyles = {
 };
 
 const widthStyles = {
-  default: "max-w-7xl",
-  wide: "max-w-[1400px]",
+  default: "max-w-[1440px]",
+  wide: "max-w-[1600px]",
   full: "max-w-full",
 };
 
@@ -29,7 +29,7 @@ export default function SectionWrapper({
       {...props}
     >
       <div
-        className={`mx-auto px-4 sm:px-6 lg:px-8 ${widthStyles[containerWidth]}`}
+        className={`mx-auto px-6 sm:px-10 lg:px-16 ${widthStyles[containerWidth]}`}
       >
         {children}
       </div>

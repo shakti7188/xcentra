@@ -5,11 +5,11 @@ export const siteConfig = {
   tagline: "The Borderless Digital Finance Platform",
   url: "https://xcentra.com",
   description:
-    "Spend stablecoins like everyday money with Xcentra virtual & physical cards. Global spending today, global payouts & USD IBAN coming soon.",
+    "Spend stablecoins like everyday money with Xcentra virtual & physical cards. 0.5% flat fee, 150M+ merchants, 100+ countries. Built for travelers, expats, freelancers, and global citizens.",
 };
 
 export const homeMetadata: Metadata = {
-  title: "Xcentra Global Cards — Spend USDC & USDT Anywhere Worldwide",
+  title: "Xcentra — Spend USDC & USDT Anywhere | 0.5% Fee, 150M+ Merchants",
   description: siteConfig.description,
   keywords: [
     "stablecoin card",
@@ -20,11 +20,16 @@ export const homeMetadata: Metadata = {
     "borderless payments",
     "digital finance",
     "global payments",
-    "freelancer crypto card",
-    "remote worker finance",
+    "travel crypto card",
+    "expat finance",
+    "digital nomad card",
+    "crypto card low fees",
+    "spend stablecoins",
+    "USDC spending card",
+    "international debit card",
   ],
   openGraph: {
-    title: "Xcentra — The Borderless Digital Finance Platform for Global Citizens",
+    title: "Xcentra — Spend Stablecoins Like Real Money at 150M+ Merchants",
     description: siteConfig.description,
     url: siteConfig.url,
     siteName: siteConfig.name,
@@ -41,7 +46,7 @@ export const homeMetadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Xcentra Global Cards — Spend USDC & USDT Anywhere Worldwide",
+    title: "Xcentra — Spend USDC & USDT Anywhere | 0.5% Fee, 150M+ Merchants",
     description: siteConfig.description,
     images: ["/images/og/home.jpg"],
   },

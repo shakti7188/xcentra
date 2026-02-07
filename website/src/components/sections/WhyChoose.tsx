@@ -2,15 +2,46 @@
 
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import ScrollReveal from "@/components/animations/ScrollReveal";
-import { whyChooseFeatures } from "@/lib/constants/features";
-import { Globe, Briefcase, Zap, Layers } from "lucide-react";
+import Badge from "@/components/ui/Badge";
+import { Globe, Briefcase, Zap, Layers, Shield } from "lucide-react";
 
-const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-  Globe,
-  Briefcase,
-  Zap,
-  Layers,
-};
+const whyFeatures = [
+  {
+    icon: Globe,
+    title: "Borderless Spending",
+    description:
+      "Use stablecoins like everyday money across countries and currencies. No borders, no barriers, no FX markups.",
+    size: "large" as const,
+  },
+  {
+    icon: Briefcase,
+    title: "Built for Global Citizens",
+    description:
+      "Whether you're a traveler, expat, freelancer, or crypto earner — Xcentra works for your lifestyle.",
+    size: "medium" as const,
+  },
+  {
+    icon: Zap,
+    title: "Real-World Utility",
+    description:
+      "Spend crypto without manually converting before every purchase. It just works at checkout.",
+    size: "medium" as const,
+  },
+  {
+    icon: Shield,
+    title: "Transparent & Secure",
+    description:
+      "0.5% flat fee, no hidden charges. Bank-grade security with 2FA, biometric auth, and instant card freeze.",
+    size: "medium" as const,
+  },
+  {
+    icon: Layers,
+    title: "One Platform, Everything Coming",
+    description:
+      "Cards live today. Global payouts, USD IBAN, and merchant ecosystem — all coming to one place.",
+    size: "medium" as const,
+  },
+];
 
 export default function WhyChoose() {
   return (
@@ -33,10 +64,10 @@ export default function WhyChoose() {
           </ScrollReveal>
         </div>
 
-        {/* Bento Grid */}
+        {/* Bento Grid — 5 cards in asymmetric layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {whyChooseFeatures.map((feature, index) => {
-            const Icon = iconMap[feature.icon] || Globe;
+          {whyFeatures.map((feature, index) => {
+            const Icon = feature.icon;
             const isLarge = feature.size === "large";
 
             return (

@@ -13,8 +13,9 @@ export const mainNav: NavItem[] = [
     ],
   },
   { label: "How It Works", href: "/how-it-works" },
+  { label: "Fees", href: "/fees" },
+  { label: "Security", href: "/security" },
   { label: "Roadmap", href: "/roadmap" },
-  { label: "About", href: "/about" },
   { label: "FAQ", href: "/faq" },
 ];
 
@@ -31,10 +32,15 @@ export const footerNav = {
     { label: "Blog", href: "/blog" },
     { label: "Contact", href: "/contact" },
   ],
+  resources: [
+    { label: "Fees & Pricing", href: "/fees" },
+    { label: "Security", href: "/security" },
+    { label: "How It Works", href: "/how-it-works" },
+    { label: "FAQ", href: "/faq" },
+  ],
   regions: [
     { label: "UAE & Dubai", href: "/regions/uae" },
     { label: "UK & Europe", href: "/regions/uk" },
-    { label: "EU", href: "/regions/eu" },
     { label: "Indonesia", href: "/regions/indonesia" },
     { label: "Brazil", href: "/regions/brazil" },
   ],

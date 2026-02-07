@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import ScrollReveal from "@/components/animations/ScrollReveal";
-import ParticleField from "@/components/animations/ParticleField";
 import GravityGrid from "@/components/animations/GravityGrid";
 import MagneticElement from "@/components/animations/MagneticElement";
 import Button from "@/components/ui/Button";
@@ -24,6 +24,32 @@ export default function FinalCTA() {
         <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[120px]" />
         <div className="absolute bottom-1/3 right-1/4 w-[300px] h-[300px] bg-accent/3 rounded-full blur-[100px]" />
       </div>
+
+      {/* Floating card visuals in background */}
+      <motion.div
+        animate={{ y: [-15, 15, -15], rotate: [-3, 3, -3] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-20 -left-20 lg:left-10 w-[220px] h-[140px] opacity-[0.08] lg:opacity-[0.12] pointer-events-none"
+      >
+        <Image
+          src="/images/stock/xcentra-card-gold.png"
+          alt=""
+          fill
+          className="object-contain"
+        />
+      </motion.div>
+      <motion.div
+        animate={{ y: [10, -10, 10], rotate: [5, -2, 5] }}
+        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-20 -right-10 lg:right-16 w-[240px] h-[150px] opacity-[0.08] lg:opacity-[0.12] pointer-events-none"
+      >
+        <Image
+          src="/images/stock/xcentra-card-black.png"
+          alt=""
+          fill
+          className="object-contain"
+        />
+      </motion.div>
 
       <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
         <ScrollReveal>
@@ -47,7 +73,7 @@ export default function FinalCTA() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <MagneticElement strength={0.2} radius={200}>
-                <Button variant="secondary" size="lg" href="#" className="group">
+                <Button variant="secondary" size="lg" href="/cards" className="group">
                   Get Xcentra Card
                   <svg
                     className="h-4 w-4 transition-transform group-hover:translate-x-1"
@@ -65,7 +91,7 @@ export default function FinalCTA() {
                 </Button>
               </MagneticElement>
               <MagneticElement strength={0.2} radius={200}>
-                <Button variant="outline-light" size="lg" href="#">
+                <Button variant="outline-light" size="lg" href="/contact">
                   Join Waitlist
                 </Button>
               </MagneticElement>

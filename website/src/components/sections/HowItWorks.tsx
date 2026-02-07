@@ -13,6 +13,7 @@ const steps = [
       "Load your Xcentra balance with USDC or USDT from any wallet or exchange.",
     iconBg: "bg-blue-100",
     iconColor: "text-blue-600",
+    accentColor: "bg-blue-500",
   },
   {
     icon: CreditCard,
@@ -22,6 +23,7 @@ const steps = [
       "Use your Xcentra virtual or physical card online or at any point-of-sale terminal.",
     iconBg: "bg-emerald-100",
     iconColor: "text-emerald-600",
+    accentColor: "bg-emerald-500",
   },
   {
     icon: RefreshCw,
@@ -31,6 +33,7 @@ const steps = [
       "Xcentra converts your stablecoins to local currency in real-time at checkout.",
     iconBg: "bg-amber-100",
     iconColor: "text-amber-600",
+    accentColor: "bg-amber-500",
   },
   {
     icon: Globe,
@@ -40,6 +43,7 @@ const steps = [
       "Keep spending worldwide just like a traditional debit card — no friction, no delays.",
     iconBg: "bg-purple-100",
     iconColor: "text-purple-600",
+    accentColor: "bg-purple-500",
   },
 ];
 
@@ -66,20 +70,29 @@ export default function HowItWorks() {
       </div>
 
       <div className="relative">
-        {/* Connection Line (desktop only) */}
-        <div className="hidden lg:block absolute top-24 left-[calc(12.5%+24px)] right-[calc(12.5%+24px)] h-0.5 bg-gradient-to-r from-blue-400/30 via-amber-400 to-purple-400/30" />
+        {/* Connection Line (desktop only) — now positioned through the center of step number area */}
+        <div className="hidden lg:block absolute top-[42px] left-[calc(12.5%+40px)] right-[calc(12.5%+40px)]">
+          <div className="h-[2px] bg-gradient-to-r from-blue-300/40 via-amber-300/60 to-purple-300/40 rounded-full" />
+        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {steps.map((step, index) => (
             <ScrollReveal key={step.title} delay={0.15 * index}>
               <div className="relative text-center group">
-                {/* Step Number + Icon */}
-                <div className="relative mx-auto mb-6">
-                  <div className={`flex h-20 w-20 items-center justify-center rounded-2xl ${step.iconBg} shadow-lg shadow-black/5 border border-black/5 mx-auto group-hover:shadow-lg group-hover:scale-105 transition-all duration-300`}>
-                    <step.icon className={`h-8 w-8 ${step.iconColor}`} />
+                {/* Step Number — centered above icon, inline with the design */}
+                <div className="flex flex-col items-center mb-5">
+                  {/* Number pill — centered, balanced */}
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className={`h-[3px] w-6 ${step.accentColor} rounded-full opacity-30`} />
+                    <span className="text-xs font-bold tracking-wider text-text-muted/60 uppercase">
+                      Step {step.number}
+                    </span>
+                    <div className={`h-[3px] w-6 ${step.accentColor} rounded-full opacity-30`} />
                   </div>
-                  <div className="absolute -top-2 -right-2 flex h-8 w-8 items-center justify-center rounded-full bg-black text-white text-xs font-bold shadow-md">
-                    {step.number}
+
+                  {/* Icon */}
+                  <div className={`flex h-20 w-20 items-center justify-center rounded-2xl ${step.iconBg} shadow-lg shadow-black/5 border border-black/5 group-hover:shadow-lg group-hover:scale-105 transition-all duration-300`}>
+                    <step.icon className={`h-8 w-8 ${step.iconColor}`} />
                   </div>
                 </div>
 

@@ -78,7 +78,7 @@ export default function GeoSection() {
     <section className="relative py-24 lg:py-32 bg-bg-primary overflow-hidden">
       <CursorGlow size={400} opacity={0.04} />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-16">
         <ScrollReveal>
           <div className="text-center mb-16">
             <Badge variant="accent" className="mb-4">
