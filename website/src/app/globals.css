@@ -234,11 +234,18 @@ h1 {
 }
 
 .backface-hidden {
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
 .rotate-y-180 {
   transform: rotateY(180deg);
+}
+
+/* Force backface on card flip wrappers — needed for mobile WebKit */
+.backface-hidden > * {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 /* ===== Section Transitions ===== */

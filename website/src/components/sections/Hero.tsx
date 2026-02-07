@@ -136,11 +136,17 @@ export default function Hero() {
                   }}
                 >
                   {/* Front — Black card */}
-                  <div className="absolute inset-0 backface-hidden">
+                  <div
+                    className="absolute inset-0 backface-hidden"
+                    style={{ WebkitBackfaceVisibility: "hidden", backfaceVisibility: "hidden" }}
+                  >
                     <CardVisual variant="black" size="lg" className="w-full h-full" />
                   </div>
                   {/* Back — Virtual card */}
-                  <div className="absolute inset-0 backface-hidden rotate-y-180">
+                  <div
+                    className="absolute inset-0 backface-hidden rotate-y-180"
+                    style={{ WebkitBackfaceVisibility: "hidden", backfaceVisibility: "hidden" }}
+                  >
                     <CardVisual variant="virtual" size="lg" className="w-full h-full" />
                   </div>
                 </motion.div>

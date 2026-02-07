@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 interface TypewriterTextProps {
   words: string[];
@@ -10,6 +10,7 @@ interface TypewriterTextProps {
   pauseTime?: number;
   className?: string;
   cursorColor?: string;
+  startDelay?: number;
 }
 
 export default function TypewriterText({
@@ -19,21 +20,21 @@ export default function TypewriterText({
   pauseTime = 2000,
   className = "",
   cursorColor = "#F5A623",
+  startDelay = 800,
 }: TypewriterTextProps) {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, margin: "-50px" });
-  const [hasBeenVisible, setHasBeenVisible] = useState(false);
+  const [started, setStarted] = useState(false);
 
-  // Once visible, always keep running (fixes Windows/cross-browser issues)
+  // Start after a short delay (lets parent animations finish)
   useEffect(() => {
-    if (isInView && !hasBeenVisible) setHasBeenVisible(true);
-  }, [isInView, hasBeenVisible]);
+    const timer = setTimeout(() => setStarted(true), startDelay);
+    return () => clearTimeout(timer);
+  }, [startDelay]);
 
   useEffect(() => {
-    if (!hasBeenVisible) return;
+    if (!started) return;
 
     const currentWord = words[currentWordIndex];
 
@@ -69,11 +70,11 @@ export default function TypewriterText({
     typingSpeed,
     deletingSpeed,
     pauseTime,
-    hasBeenVisible,
+    started,
   ]);
 
   return (
-    <span ref={ref} className={`inline-flex items-baseline ${className}`}>
+    <span className={`inline-flex items-baseline ${className}`}>
       <span>{currentText}</span>
       <motion.span
         className="inline-block w-[3px] h-[1em] ml-1 rounded-full"
