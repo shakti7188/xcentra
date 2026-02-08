@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useTransform, animate } from "framer-motion";
+import { useEffect } from "react";
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
 import FloatingElement from "@/components/animations/FloatingElement";
@@ -12,6 +13,34 @@ import { useOrderForm } from "@/components/providers/OrderFormProvider";
 
 export default function Hero() {
   const { openOrderForm } = useOrderForm();
+
+  // Manual rotation control for cross-fade card flip
+  const rotateY = useMotionValue(0);
+
+  // Front card: visible 0-90° and 270-360°, hidden 90-270°
+  const frontOpacity = useTransform(rotateY, [0, 80, 90, 270, 280, 360], [1, 1, 0, 0, 1, 1]);
+  // Back card: visible 90-270°, hidden 0-90° and 270-360°
+  const backOpacity = useTransform(rotateY, [0, 80, 90, 270, 280, 360], [0, 0, 1, 1, 0, 0]);
+
+  useEffect(() => {
+    const runAnimation = () => {
+      const controls = animate(rotateY, 360, {
+        duration: 4,
+        ease: "easeInOut",
+        onComplete: () => {
+          rotateY.set(0);
+          setTimeout(runAnimation, 3000); // repeatDelay
+        },
+      });
+      return controls;
+    };
+
+    const timeout = setTimeout(() => {
+      runAnimation();
+    }, 100);
+
+    return () => clearTimeout(timeout);
+  }, [rotateY]);
 
   return (
     <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-bg-primary pt-20">
@@ -125,38 +154,19 @@ export default function Hero() {
               <div style={{ perspective: "1200px" }}>
                 <motion.div
                   className="relative w-[360px] h-[226px] sm:w-[430px] sm:h-[270px]"
-                  style={{ transformStyle: "preserve-3d" }}
-                  animate={{ rotateY: [0, 180, 360] }}
-                  transition={{
-                    duration: 4,
-                    ease: "easeInOut",
-                    repeat: Infinity,
-                    repeatDelay: 3,
-                  }}
+                  style={{ rotateY, transformStyle: "preserve-3d" }}
                 >
-                  {/* Front — Black card */}
-                  <div
-                    className="absolute inset-0"
-                    style={{
-                      backfaceVisibility: "hidden",
-                      WebkitBackfaceVisibility: "hidden",
-                      transformStyle: "flat",
-                    }}
-                  >
+                  {/* Front — Black card (opacity-based hide on back) */}
+                  <motion.div className="absolute inset-0" style={{ opacity: frontOpacity }}>
                     <CardVisual variant="black" size="lg" className="w-full h-full" />
-                  </div>
-                  {/* Back — Virtual card */}
-                  <div
+                  </motion.div>
+                  {/* Back — Virtual card (opacity-based show on back) */}
+                  <motion.div
                     className="absolute inset-0"
-                    style={{
-                      backfaceVisibility: "hidden",
-                      WebkitBackfaceVisibility: "hidden",
-                      transform: "rotateY(180deg)",
-                      transformStyle: "flat",
-                    }}
+                    style={{ opacity: backOpacity, transform: "rotateY(180deg)" }}
                   >
                     <CardVisual variant="virtual" size="lg" className="w-full h-full" />
-                  </div>
+                  </motion.div>
                 </motion.div>
               </div>
             </FloatingElement>
