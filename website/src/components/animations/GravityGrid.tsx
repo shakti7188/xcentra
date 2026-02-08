@@ -51,6 +51,11 @@ export default function GravityGrid({
   );
 
   useEffect(() => {
+    // Skip on touch/mobile devices — no mouse cursor, saves battery & CPU
+    const isTouchDevice =
+      "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    if (isTouchDevice) return;
+
     const canvas = canvasRef.current;
     const container = containerRef.current;
     if (!canvas || !container) return;

@@ -63,14 +63,12 @@ export default function Hero() {
                 transition={{ duration: 0.6, delay: 0.45 }}
                 className="block"
               >
-                <span className="gradient-text">
-                  <TypewriterText
-                    words={["Borderless", "Limitless", "Seamless", "Global"]}
-                    typingSpeed={100}
-                    deletingSpeed={50}
-                    pauseTime={2500}
-                  />
-                </span>
+                <TypewriterText
+                  words={["Borderless", "Limitless", "Seamless", "Global"]}
+                  typingSpeed={100}
+                  deletingSpeed={50}
+                  pauseTime={2500}
+                />
               </motion.span>
               <motion.span
                 initial={{ opacity: 0, y: 20 }}
@@ -124,9 +122,10 @@ export default function Hero() {
             className="flex justify-center lg:justify-end"
           >
             <FloatingElement amplitude={8} duration={4}>
-              <div className="perspective">
+              <div style={{ perspective: "1200px" }}>
                 <motion.div
-                  className="preserve-3d relative w-[360px] h-[226px] sm:w-[430px] sm:h-[270px]"
+                  className="relative w-[360px] h-[226px] sm:w-[430px] sm:h-[270px]"
+                  style={{ transformStyle: "preserve-3d" }}
                   animate={{ rotateY: [0, 180, 360] }}
                   transition={{
                     duration: 4,
@@ -137,15 +136,24 @@ export default function Hero() {
                 >
                   {/* Front — Black card */}
                   <div
-                    className="absolute inset-0 backface-hidden"
-                    style={{ WebkitBackfaceVisibility: "hidden", backfaceVisibility: "hidden" }}
+                    className="absolute inset-0"
+                    style={{
+                      backfaceVisibility: "hidden",
+                      WebkitBackfaceVisibility: "hidden",
+                      transformStyle: "flat",
+                    }}
                   >
                     <CardVisual variant="black" size="lg" className="w-full h-full" />
                   </div>
                   {/* Back — Virtual card */}
                   <div
-                    className="absolute inset-0 backface-hidden rotate-y-180"
-                    style={{ WebkitBackfaceVisibility: "hidden", backfaceVisibility: "hidden" }}
+                    className="absolute inset-0"
+                    style={{
+                      backfaceVisibility: "hidden",
+                      WebkitBackfaceVisibility: "hidden",
+                      transform: "rotateY(180deg)",
+                      transformStyle: "flat",
+                    }}
                   >
                     <CardVisual variant="virtual" size="lg" className="w-full h-full" />
                   </div>

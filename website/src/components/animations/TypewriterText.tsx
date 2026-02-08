@@ -26,6 +26,7 @@ export default function TypewriterText({
   const [currentText, setCurrentText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [started, setStarted] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
 
   // Start after a short delay (lets parent animations finish)
   useEffect(() => {
@@ -34,22 +35,24 @@ export default function TypewriterText({
   }, [startDelay]);
 
   useEffect(() => {
-    if (!started) return;
+    if (!started || isPaused) return;
 
     const currentWord = words[currentWordIndex];
 
     const timeout = setTimeout(
       () => {
         if (!isDeleting) {
-          // Typing
           if (currentText.length < currentWord.length) {
             setCurrentText(currentWord.slice(0, currentText.length + 1));
           } else {
-            // Pause at full word
-            setTimeout(() => setIsDeleting(true), pauseTime);
+            // Pause at full word before deleting
+            setIsPaused(true);
+            setTimeout(() => {
+              setIsPaused(false);
+              setIsDeleting(true);
+            }, pauseTime);
           }
         } else {
-          // Deleting
           if (currentText.length > 0) {
             setCurrentText(currentWord.slice(0, currentText.length - 1));
           } else {
@@ -71,13 +74,23 @@ export default function TypewriterText({
     deletingSpeed,
     pauseTime,
     started,
+    isPaused,
   ]);
 
   return (
     <span className={`inline-flex items-baseline ${className}`}>
-      <span>{currentText}</span>
+      <span
+        style={{
+          background: "linear-gradient(135deg, #F5A623, #FFC857)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          backgroundClip: "text",
+        }}
+      >
+        {currentText || "\u200B"}
+      </span>
       <motion.span
-        className="inline-block w-[3px] h-[1em] ml-1 rounded-full"
+        className="inline-block w-[3px] h-[0.85em] ml-0.5 rounded-full"
         style={{ backgroundColor: cursorColor }}
         animate={{ opacity: [1, 0, 1] }}
         transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
