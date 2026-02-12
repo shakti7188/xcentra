@@ -15,10 +15,6 @@ import {
   BarChart3,
   Shield,
   Layers,
-  Wallet,
-  Building2,
-  ShoppingCart,
-  Briefcase,
   ArrowRight,
   CheckCircle,
 } from "lucide-react";
@@ -95,28 +91,6 @@ const steps = [
   },
 ];
 
-const audiences = [
-  {
-    icon: Building2,
-    title: "Fintechs & Neobanks",
-    description: "Add card issuance to your fintech product without building from scratch.",
-  },
-  {
-    icon: Wallet,
-    title: "Crypto Exchanges",
-    description: "Let your users spend their crypto holdings at real-world merchants.",
-  },
-  {
-    icon: ShoppingCart,
-    title: "E-Commerce Platforms",
-    description: "Offer branded payment cards as part of your marketplace ecosystem.",
-  },
-  {
-    icon: Briefcase,
-    title: "Corporate & Enterprise",
-    description: "Issue expense cards for teams with custom spending policies and controls.",
-  },
-];
 
 export default function WhiteLabelContent() {
   const { openWhiteLabelForm } = useOrderForm();
@@ -243,46 +217,6 @@ export default function WhiteLabelContent() {
               </div>
             </ScrollReveal>
           ))}
-        </div>
-      </SectionWrapper>
-
-      {/* Who It's For */}
-      <SectionWrapper theme="light">
-        <div className="max-w-5xl mx-auto">
-          <ScrollReveal>
-            <div className="text-center mb-12">
-              <Badge variant="accent" className="mb-4">
-                Built For You
-              </Badge>
-              <h2 className="text-3xl sm:text-4xl font-medium text-text-dark mb-4">
-                Who Is This <span className="text-accent">For?</span>
-              </h2>
-              <p className="text-text-muted text-lg">
-                Xcentra White Label is designed for businesses ready to offer
-                branded card programs to their users.
-              </p>
-            </div>
-          </ScrollReveal>
-
-          <div className="grid sm:grid-cols-2 gap-6">
-            {audiences.map((item, i) => (
-              <ScrollReveal key={item.title} delay={i * 0.1}>
-                <div className="bg-white rounded-2xl p-8 border border-black/5 shadow-lg shadow-black/5 h-full flex gap-5">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent/10">
-                    <item.icon className="h-6 w-6 text-accent" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-text-dark mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-text-muted leading-relaxed text-sm">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
         </div>
       </SectionWrapper>
 

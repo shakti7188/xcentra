@@ -13,6 +13,7 @@ export const mainNav: NavItem[] = [
       { label: "Merchant Ecosystem", href: "/merchant-ecosystem" },
     ],
   },
+  { label: "White Label", href: "/white-label" },
   { label: "How It Works", href: "/how-it-works" },
   { label: "Security", href: "/security" },
   { label: "Roadmap", href: "/roadmap" },
