@@ -7,11 +7,6 @@ export const faqItems: FAQItem[] = [
       "Yes. Xcentra cards allow you to spend stablecoins like USDC and USDT at merchants worldwide by converting to fiat instantly at checkout. No manual off-ramping needed.",
   },
   {
-    question: "What fees does Xcentra charge?",
-    answer:
-      "Xcentra charges a flat 0.5% conversion fee per transaction — that's it. No monthly fees, no hidden FX markups, no foreign transaction surcharges. Virtual cards are free to issue, physical cards cost a one-time $10 fee. ATM withdrawals are free up to $200/month.",
-  },
-  {
     question: "How does Xcentra compare to traditional banks and other crypto cards?",
     answer:
       "Traditional banks typically charge 2-3% in FX markups plus foreign transaction fees. Standard crypto cards charge 1-2.5% with hidden spreads. Xcentra offers a transparent flat 0.5% fee with no hidden charges — making it the most cost-effective option for global stablecoin spending.",

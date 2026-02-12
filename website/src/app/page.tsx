@@ -4,7 +4,6 @@ import TrustBar from "@/components/sections/TrustBar";
 import WhatIsXcentra from "@/components/sections/WhatIsXcentra";
 import GlobalCards from "@/components/sections/GlobalCards";
 import WhiteLabel from "@/components/sections/WhiteLabel";
-import WhyChoose from "@/components/sections/WhyChoose";
 import HowItWorks from "@/components/sections/HowItWorks";
 import Roadmap from "@/components/sections/Roadmap";
 import UseCases from "@/components/sections/UseCases";
@@ -36,9 +35,6 @@ export default async function Home() {
 
       {/* Section 5b: White Label Cards — Dark BG */}
       <WhiteLabel />
-
-      {/* Section 6: Why Choose Xcentra — Dark BG Bento Grid */}
-      <WhyChoose />
 
       {/* Section 7: How It Works — Light BG */}
       <HowItWorks />
