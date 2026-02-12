@@ -83,7 +83,7 @@ export default function Navbar() {
                   onMouseEnter={() => setOpenDropdown(item.label)}
                   onMouseLeave={() => setOpenDropdown(null)}
                 >
-                  <div className="glass rounded-xl p-2 min-w-[200px]">
+                  <div className="bg-[#111118] border border-border-dark rounded-xl p-2 min-w-[200px] shadow-xl shadow-black/40">
                     {item.children.map((child) => (
                       <Link
                         key={child.label}
