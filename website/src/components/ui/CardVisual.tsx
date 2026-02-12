@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-type CardVariant = "black" | "gold" | "platinum" | "virtual";
+type CardVariant = "black" | "gold" | "platinum" | "virtual" | "whitelabel";
 
 interface CardVisualProps {
   variant?: CardVariant;
@@ -75,6 +75,18 @@ const cardStyles: Record<
     networkCircle1: "rgba(245,166,35,0.4)",
     networkCircle2: "rgba(245,166,35,0.25)",
   },
+  whitelabel: {
+    bg: "bg-gradient-to-br from-[#f0f0f0] via-[#e8e8e8] to-[#d5d5d5]",
+    text: "text-gray-700",
+    accent: "text-gray-400",
+    label: "WHITE LABEL",
+    logo: "",
+    numColor: "text-gray-400/60",
+    blobColor: "rgba(0,0,0,0.03)",
+    stripeColor: "#999",
+    networkCircle1: "rgba(120,120,120,0.35)",
+    networkCircle2: "rgba(120,120,120,0.2)",
+  },
 };
 
 const sizeStyles: Record<
@@ -91,6 +103,7 @@ const cardNumbers: Record<CardVariant, string> = {
   gold: "4821  6390  0052  7741",
   platinum: "5500  3412  8899  1062",
   virtual: "4900  1188  7723  4056",
+  whitelabel: "XXXX  XXXX  XXXX  XXXX",
 };
 
 /* Mastercard-style double circle SVG with DEBIT text */
@@ -141,6 +154,8 @@ export default function CardVisual({
             ? "0 25px 50px -12px rgba(0,0,0,0.6), 0 0 40px rgba(245,166,35,0.08), inset 0 1px 0 rgba(255,255,255,0.1)"
             : variant === "gold"
             ? "0 25px 50px -12px rgba(180,130,30,0.4), 0 0 40px rgba(245,206,110,0.15), inset 0 1px 0 rgba(255,255,255,0.4)"
+            : variant === "whitelabel"
+            ? "0 25px 50px -12px rgba(0,0,0,0.15), 0 0 30px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.8)"
             : "0 25px 50px -12px rgba(0,0,0,0.3), 0 0 40px rgba(200,200,200,0.1), inset 0 1px 0 rgba(255,255,255,0.5)",
       }}
     >
@@ -179,13 +194,23 @@ export default function CardVisual({
 
       {/* Top row: Xcentra logo + tier label */}
       <div className="relative z-10 flex items-start justify-between">
-        <Image
-          src={style.logo}
-          alt="Xcentra"
-          width={dims.logoW}
-          height={50}
-          className={`object-contain ${dims.logoH} w-auto`}
-        />
+        {variant === "whitelabel" ? (
+          <span
+            className={`${style.text} font-bold tracking-wider ${
+              size === "sm" ? "text-base" : size === "md" ? "text-lg" : "text-xl"
+            }`}
+          >
+            YOUR BRAND
+          </span>
+        ) : (
+          <Image
+            src={style.logo}
+            alt="Xcentra"
+            width={dims.logoW}
+            height={50}
+            className={`object-contain ${dims.logoH} w-auto`}
+          />
+        )}
         <span
           className={`${style.accent} ${dims.labelSize} tracking-[0.2em] font-bold`}
         >

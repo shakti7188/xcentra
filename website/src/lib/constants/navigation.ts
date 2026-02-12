@@ -7,6 +7,7 @@ export const mainNav: NavItem[] = [
     href: "#",
     children: [
       { label: "Global Cards", href: "/cards" },
+      { label: "White Label Cards", href: "/white-label" },
       { label: "Global Payouts", href: "/global-payouts" },
       { label: "USD Account", href: "/global-usd-account" },
       { label: "Merchant Ecosystem", href: "/merchant-ecosystem" },
@@ -21,6 +22,7 @@ export const mainNav: NavItem[] = [
 export const footerNav = {
   products: [
     { label: "Global Cards", href: "/cards" },
+    { label: "White Label Cards", href: "/white-label" },
     { label: "Global Payouts", href: "/global-payouts" },
     { label: "USD Account", href: "/global-usd-account" },
     { label: "Merchant Ecosystem", href: "/merchant-ecosystem" },
