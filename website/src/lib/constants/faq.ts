@@ -9,7 +9,7 @@ export const faqItems: FAQItem[] = [
   {
     question: "What fees does Xcentra charge?",
     answer:
-      "Xcentra charges a flat 0.5% conversion fee per transaction — that's it. No monthly fees, no hidden FX markups, no foreign transaction surcharges. Virtual cards are free to issue, physical cards cost a one-time $10 fee. ATM withdrawals are free up to $200/month. See our full fee schedule at /fees.",
+      "Xcentra charges a flat 0.5% conversion fee per transaction — that's it. No monthly fees, no hidden FX markups, no foreign transaction surcharges. Virtual cards are free to issue, physical cards cost a one-time $10 fee. ATM withdrawals are free up to $200/month.",
   },
   {
     question: "How does Xcentra compare to traditional banks and other crypto cards?",

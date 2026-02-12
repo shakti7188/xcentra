@@ -258,8 +258,8 @@ export default function SecurityContent() {
               <Button variant="secondary" size="lg" onClick={() => openOrderForm("physical")}>
                 Get Xcentra Card
               </Button>
-              <Button variant="outline-light" size="lg" href="/fees">
-                View Pricing
+              <Button variant="outline-light" size="lg" href="/how-it-works">
+                How It Works
               </Button>
             </div>
           </ScrollReveal>

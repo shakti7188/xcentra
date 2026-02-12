@@ -10,6 +10,7 @@ import Badge from "@/components/ui/Badge";
 import { ArrowUpRight, ArrowDownLeft, CreditCard, Wifi } from "lucide-react";
 
 const walletItems = [
+  { symbol: "XHAVIC", name: "Xhavic", amount: "12,500.00", fiat: "$3,125.00", color: "#0E85FD", letter: "", icon: "/images/logos/xhavic-icon.svg" },
   { symbol: "USDC", name: "USD Coin", amount: "2,450.00", fiat: "$2,450.00", color: "#2775CA", letter: "U" },
   { symbol: "USDT", name: "Tether", amount: "1,820.50", fiat: "$1,820.50", color: "#26A17B", letter: "T" },
   { symbol: "DAI", name: "Dai", amount: "680.25", fiat: "$680.25", color: "#F5AC37", letter: "D" },
@@ -283,7 +284,11 @@ export default function WhatIsXcentra() {
                                       animate={{ scale: [1, 1.06, 1] }}
                                       transition={{ duration: 3, repeat: Infinity, delay: i * 0.5, ease: "easeInOut" }}
                                     >
-                                      <span className="font-bold text-xs" style={{ color: item.color }}>{item.letter}</span>
+                                      {"icon" in item && item.icon ? (
+                                        <Image src={item.icon} alt={item.symbol} width={18} height={18} className="w-[18px] h-[18px]" />
+                                      ) : (
+                                        <span className="font-bold text-xs" style={{ color: item.color }}>{item.letter}</span>
+                                      )}
                                     </motion.div>
                                     <div>
                                       <p className="text-white font-bold text-xs">{item.symbol}</p>

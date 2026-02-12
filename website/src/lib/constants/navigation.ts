@@ -13,7 +13,6 @@ export const mainNav: NavItem[] = [
     ],
   },
   { label: "How It Works", href: "/how-it-works" },
-  { label: "Fees", href: "/fees" },
   { label: "Security", href: "/security" },
   { label: "Roadmap", href: "/roadmap" },
   { label: "FAQ", href: "/faq" },
@@ -33,7 +32,6 @@ export const footerNav = {
     { label: "Contact", href: "/contact" },
   ],
   resources: [
-    { label: "Fees & Pricing", href: "/fees" },
     { label: "Security", href: "/security" },
     { label: "How It Works", href: "/how-it-works" },
     { label: "FAQ", href: "/faq" },
