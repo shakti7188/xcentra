@@ -9,69 +9,84 @@ import Button from "@/components/ui/Button";
 
 const regions = [
   {
-    id: "uae",
-    name: "UAE & Dubai",
-    flag: "🇦🇪",
-    currency: "AED",
-    headline: "Xcentra for UAE & Dubai",
+    id: "mena",
+    name: "MENA",
+    flag: "🌍",
+    currency: "AED / SAR / EGP",
+    headline: "Xcentra for MENA",
     description:
-      "Dubai's freelancer and entrepreneur community thrives on global payments. Xcentra gives you a borderless spending card accepted across the Emirates and beyond.",
+      "From Dubai to Riyadh to Cairo — Xcentra empowers freelancers, entrepreneurs, and the growing digital economy across the Middle East & North Africa with borderless spending.",
     useCases: [
-      "Freelancers receiving USDC from global clients",
-      "Entrepreneurs moving funds across borders",
-      "Digital nomads living in Dubai",
+      "UAE freelancers receiving USDC from global clients",
+      "Saudi entrepreneurs moving funds across borders",
+      "Digital nomads and remote workers across the region",
     ],
     href: "/regions/uae",
   },
   {
-    id: "uk",
-    name: "UK & Europe",
-    flag: "🇬🇧",
-    currency: "GBP",
-    headline: "Xcentra for UK Freelancers",
+    id: "europe",
+    name: "Europe & UK",
+    flag: "🇪🇺",
+    currency: "EUR / GBP",
+    headline: "Xcentra for Europe & UK",
     description:
-      "No more waiting days for international transfers to clear. Spend your stablecoin earnings instantly at any UK or European merchant.",
+      "No more waiting days for international transfers to clear. Spend your stablecoin earnings instantly at any merchant across Europe and the United Kingdom.",
     useCases: [
-      "Remote workers paid in crypto",
-      "European contractors needing fast payouts",
-      "Cross-border shoppers and travelers",
+      "Remote workers and contractors paid in crypto",
+      "Cross-border freelancers across EU nations",
+      "Travelers and digital nomads across the continent",
     ],
     href: "/regions/uk",
   },
   {
-    id: "indonesia",
-    name: "Indonesia",
-    flag: "🇮🇩",
-    currency: "IDR",
-    headline: "Xcentra for Indonesia",
+    id: "latam",
+    name: "LATAM",
+    flag: "🌎",
+    currency: "BRL / MXN / ARS",
+    headline: "Xcentra for Latin America",
     description:
-      "Access the global economy from Indonesia. Convert stablecoins to IDR at the point of sale — no middleman banks, no unfair exchange rates.",
+      "Protect your earnings from currency volatility across Brazil, Mexico, Argentina, and beyond. Hold stablecoins and spend when you need to — Xcentra makes practical sense in high-inflation markets.",
     useCases: [
-      "Bali-based digital nomads",
-      "Indonesian freelancers on global platforms",
-      "Cross-border e-commerce sellers",
+      "Inflation hedge for earned income across LATAM",
+      "Content creators and developers earning in USD",
+      "Cross-border e-commerce sellers and merchants",
+    ],
+    href: "/regions/brazil",
+  },
+  {
+    id: "apac",
+    name: "Asia Pacific",
+    flag: "🌏",
+    currency: "IDR / PHP / THB",
+    headline: "Xcentra for Asia Pacific",
+    description:
+      "Access the global economy from Indonesia, Philippines, Thailand, and across Southeast Asia. Convert stablecoins at the point of sale — no middleman banks, no unfair exchange rates.",
+    useCases: [
+      "Bali-based digital nomads and remote workers",
+      "Southeast Asian freelancers on global platforms",
+      "Cross-border sellers and gig economy workers",
     ],
     href: "/regions/indonesia",
   },
   {
-    id: "brazil",
-    name: "Brazil",
-    flag: "🇧🇷",
-    currency: "BRL",
-    headline: "Xcentra for Brazil",
+    id: "africa",
+    name: "Africa",
+    flag: "🌍",
+    currency: "NGN / KES / ZAR",
+    headline: "Xcentra for Africa",
     description:
-      "Protect your earnings from BRL volatility by holding stablecoins and spending only when needed. Xcentra makes practical sense in high-inflation markets.",
+      "Empowering the unbanked and underbanked across Nigeria, Kenya, South Africa, and beyond. Xcentra bridges the gap between crypto earnings and everyday spending.",
     useCases: [
-      "Inflation hedge for earned income",
-      "Content creators earning in USD",
-      "Tech workers with international contracts",
+      "Freelancers and remote workers earning in crypto",
+      "Cross-border payments without expensive remittance fees",
+      "Tech professionals with international contracts",
     ],
-    href: "/regions/brazil",
+    href: "/regions/uae",
   },
 ];
 
 export default function GeoSection() {
-  const [activeRegion, setActiveRegion] = useState("uae");
+  const [activeRegion, setActiveRegion] = useState("mena");
   const active = regions.find((r) => r.id === activeRegion)!;
 
   return (

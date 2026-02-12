@@ -76,16 +76,16 @@ const cardStyles: Record<
     networkCircle2: "rgba(245,166,35,0.25)",
   },
   whitelabel: {
-    bg: "bg-gradient-to-br from-[#f0f0f0] via-[#e8e8e8] to-[#d5d5d5]",
-    text: "text-gray-700",
-    accent: "text-gray-400",
+    bg: "bg-gradient-to-br from-[#1c1c2e] via-[#252540] to-[#14142a]",
+    text: "text-white/85",
+    accent: "text-white/30",
     label: "WHITE LABEL",
     logo: "",
-    numColor: "text-gray-400/60",
-    blobColor: "rgba(0,0,0,0.03)",
-    stripeColor: "#999",
-    networkCircle1: "rgba(120,120,120,0.35)",
-    networkCircle2: "rgba(120,120,120,0.2)",
+    numColor: "text-white/40",
+    blobColor: "rgba(160,130,255,0.06)",
+    stripeColor: "#8b6cf6",
+    networkCircle1: "rgba(139,108,246,0.4)",
+    networkCircle2: "rgba(139,108,246,0.25)",
   },
 };
 
@@ -106,10 +106,9 @@ const cardNumbers: Record<CardVariant, string> = {
   whitelabel: "XXXX  XXXX  XXXX  XXXX",
 };
 
-/* Mastercard-style double circle SVG with DEBIT text */
+/* Visa-style network logo with DEBIT text */
 function CardNetworkLogo({
   c1,
-  c2,
   accent,
   size,
 }: {
@@ -118,12 +117,21 @@ function CardNetworkLogo({
   accent: string;
   size: string;
 }) {
-  const s = size === "sm" ? 28 : size === "md" ? 34 : 40;
+  const w = size === "sm" ? 40 : size === "md" ? 50 : 58;
+  const h = size === "sm" ? 14 : size === "md" ? 17 : 20;
   return (
-    <div className="flex flex-col items-center">
-      <svg width={s} height={s * 0.62} viewBox="0 0 48 30" fill="none">
-        <circle cx="17" cy="15" r="13" fill={c1} />
-        <circle cx="31" cy="15" r="13" fill={c2} />
+    <div className="flex flex-col items-end">
+      <svg width={w} height={h} viewBox="0 0 60 20" fill="none">
+        {/* V */}
+        <path d="M8.5 1L4 19H0L4.5 1H8.5Z" fill={c1} />
+        {/* I */}
+        <path d="M14 1H10L6 19H10L14 1Z" fill={c1} />
+        {/* S */}
+        <path d="M22.5 1.5C20.5 0.5 17.5 0 15.5 1C13.5 2 13 4 14 5.5C15 7 17 7.5 19 8.5C21 9.5 22 11 21.5 13C21 15 19 17 15 17.5C13 17.8 11 17.2 9.5 16.5L11 13C12.5 14 14.5 14.5 16 14C17.5 13.5 18 12 17 11C16 10 14 9.5 12.5 8.5C11 7.5 10 6 10.5 4C11 2 13.5 0 17 0C19 0 21 0.5 22.5 1.5L22.5 1.5Z" fill={c1} />
+        {/* A */}
+        <path d="M30 1L24 19H28L29 16H35L35.5 19H39.5L34 1H30ZM30 13L32 5L34 13H30Z" fill={c1} />
+        {/* Swoosh underneath */}
+        <path d="M0 18.5Q15 22 30 18.5Q45 15 60 18.5" stroke={c1} strokeWidth="1" fill="none" opacity="0.5" />
       </svg>
       <span
         className={`${accent} font-bold tracking-[0.15em] ${
@@ -155,7 +163,7 @@ export default function CardVisual({
             : variant === "gold"
             ? "0 25px 50px -12px rgba(180,130,30,0.4), 0 0 40px rgba(245,206,110,0.15), inset 0 1px 0 rgba(255,255,255,0.4)"
             : variant === "whitelabel"
-            ? "0 25px 50px -12px rgba(0,0,0,0.15), 0 0 30px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.8)"
+            ? "0 25px 50px -12px rgba(0,0,0,0.5), 0 0 40px rgba(139,108,246,0.08), inset 0 1px 0 rgba(255,255,255,0.08)"
             : "0 25px 50px -12px rgba(0,0,0,0.3), 0 0 40px rgba(200,200,200,0.1), inset 0 1px 0 rgba(255,255,255,0.5)",
       }}
     >
