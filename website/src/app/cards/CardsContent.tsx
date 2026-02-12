@@ -42,8 +42,6 @@ const cardTypes = [
     badge: "Most Popular",
     badgeColor: "bg-accent text-black",
     icon: Smartphone,
-    price: "Free",
-    priceLabel: "No issuance fee",
   },
   {
     variant: "black" as const,
@@ -61,8 +59,6 @@ const cardTypes = [
     badge: "Recommended",
     badgeColor: "bg-white text-black",
     icon: CreditCard,
-    price: "Free",
-    priceLabel: "No issuance fee",
   },
   {
     variant: "platinum" as const,
@@ -80,8 +76,6 @@ const cardTypes = [
     badge: "Launching Soon",
     badgeColor: "bg-white/10 text-white/80 border border-white/20",
     icon: Crown,
-    price: "TBA",
-    priceLabel: "Coming soon",
   },
 ];
 
@@ -287,16 +281,8 @@ export default function CardsContent() {
                       ))}
                     </ul>
 
-                    {/* Price + CTA */}
+                    {/* CTA */}
                     <div className="pt-4 border-t border-black/[0.06]">
-                      <div className="flex items-baseline gap-2 mb-4">
-                        <span className="text-2xl font-bold text-text-dark">
-                          {card.price}
-                        </span>
-                        <span className="text-sm text-text-muted">
-                          {card.priceLabel}
-                        </span>
-                      </div>
                       <Button
                         variant="primary"
                         size="md"

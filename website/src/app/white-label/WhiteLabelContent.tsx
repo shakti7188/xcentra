@@ -221,17 +221,17 @@ export default function WhiteLabelContent() {
       </SectionWrapper>
 
       {/* Blockchain Badge */}
-      <SectionWrapper theme="dark">
+      <SectionWrapper theme="light">
         <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal>
-            <div className="glass rounded-2xl p-10 border border-border-dark">
+            <div className="bg-white rounded-2xl p-10 border border-black/5 shadow-lg shadow-black/5">
               <div className="flex items-center justify-center gap-3 mb-6">
                 <Cpu className="h-8 w-8 text-accent" />
-                <h3 className="text-2xl font-semibold text-text-primary">
+                <h3 className="text-2xl font-semibold text-text-dark">
                   Powered by Xhavic Blockchain
                 </h3>
               </div>
-              <p className="text-text-secondary leading-relaxed mb-6">
+              <p className="text-text-muted leading-relaxed mb-6">
                 Every white label card is backed by the Xhavic blockchain —
                 providing transparent settlement, immutable transaction records,
                 and industry-leading security for your card program.
@@ -245,7 +245,7 @@ export default function WhiteLabelContent() {
                 ].map((item) => (
                   <div
                     key={item}
-                    className="flex items-center gap-2 text-text-secondary"
+                    className="flex items-center gap-2 text-text-muted"
                   >
                     <CheckCircle className="h-4 w-4 text-accent" />
                     {item}

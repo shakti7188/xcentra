@@ -51,7 +51,7 @@ export default function WhiteLabel() {
       <div className="text-center mb-16">
         <ScrollReveal>
           <Badge variant="accent" className="mb-4">
-            White Label Solutions
+            Partner Solutions
           </Badge>
         </ScrollReveal>
         <ScrollReveal delay={0.1}>

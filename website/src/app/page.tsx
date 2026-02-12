@@ -33,7 +33,7 @@ export default async function Home() {
       {/* Section 5: Global Cards — Dark BG */}
       <GlobalCards />
 
-      {/* Section 5b: White Label Cards — Dark BG */}
+      {/* Section 5b: Partners / White Label Cards — Dark BG */}
       <WhiteLabel />
 
       {/* Section 7: How It Works — Light BG */}
