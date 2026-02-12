@@ -61,8 +61,8 @@ const cardTypes = [
     badge: "Recommended",
     badgeColor: "bg-white text-black",
     icon: CreditCard,
-    price: "$10",
-    priceLabel: "One-time fee",
+    price: "Free",
+    priceLabel: "No issuance fee",
   },
   {
     variant: "platinum" as const,
