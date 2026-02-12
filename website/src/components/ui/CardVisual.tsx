@@ -106,10 +106,9 @@ const cardNumbers: Record<CardVariant, string> = {
   whitelabel: "XXXX  XXXX  XXXX  XXXX",
 };
 
-/* Visa-style network logo with DEBIT text */
+/* Official Visa network logo */
 function CardNetworkLogo({
   c1,
-  accent,
   size,
 }: {
   c1: string;
@@ -117,30 +116,15 @@ function CardNetworkLogo({
   accent: string;
   size: string;
 }) {
-  const w = size === "sm" ? 40 : size === "md" ? 50 : 58;
-  const h = size === "sm" ? 14 : size === "md" ? 17 : 20;
+  const w = size === "sm" ? 42 : size === "md" ? 52 : 62;
+  const h = Math.round(w * 0.324);
   return (
-    <div className="flex flex-col items-end">
-      <svg width={w} height={h} viewBox="0 0 60 20" fill="none">
-        {/* V */}
-        <path d="M8.5 1L4 19H0L4.5 1H8.5Z" fill={c1} />
-        {/* I */}
-        <path d="M14 1H10L6 19H10L14 1Z" fill={c1} />
-        {/* S */}
-        <path d="M22.5 1.5C20.5 0.5 17.5 0 15.5 1C13.5 2 13 4 14 5.5C15 7 17 7.5 19 8.5C21 9.5 22 11 21.5 13C21 15 19 17 15 17.5C13 17.8 11 17.2 9.5 16.5L11 13C12.5 14 14.5 14.5 16 14C17.5 13.5 18 12 17 11C16 10 14 9.5 12.5 8.5C11 7.5 10 6 10.5 4C11 2 13.5 0 17 0C19 0 21 0.5 22.5 1.5L22.5 1.5Z" fill={c1} />
-        {/* A */}
-        <path d="M30 1L24 19H28L29 16H35L35.5 19H39.5L34 1H30ZM30 13L32 5L34 13H30Z" fill={c1} />
-        {/* Swoosh underneath */}
-        <path d="M0 18.5Q15 22 30 18.5Q45 15 60 18.5" stroke={c1} strokeWidth="1" fill="none" opacity="0.5" />
-      </svg>
-      <span
-        className={`${accent} font-bold tracking-[0.15em] ${
-          size === "sm" ? "text-[5px]" : size === "md" ? "text-[6px]" : "text-[7px]"
-        } mt-0.5`}
-      >
-        DEBIT
-      </span>
-    </div>
+    <svg width={w} height={h} viewBox="0.5 0.5 999 323.684" fill="none">
+      <path
+        d="M651.185.5c-70.933 0-134.322 36.766-134.322 104.694 0 77.9 112.423 83.28 112.423 122.415 0 16.478-18.884 31.229-51.137 31.229-45.773 0-79.984-20.611-79.984-20.611l-14.638 68.547s39.41 17.41 91.734 17.41c77.552 0 138.576-38.572 138.576-107.66 0-82.316-112.89-87.537-112.89-123.86 0-12.91 15.501-27.053 47.662-27.053 36.286 0 65.892 14.99 65.892 14.99l14.326-66.204S696.614.5 651.185.5zM2.218 5.497L.5 15.49s29.842 5.461 56.719 16.356c34.606 12.492 37.072 19.765 42.9 42.353l63.51 244.832h85.138L379.927 5.497h-84.942L210.707 218.67l-34.39-180.696c-3.154-20.68-19.13-32.477-38.685-32.477H2.218zm411.865 0L347.449 319.03h80.999l66.4-313.534h-80.765zm451.759 0c-19.532 0-29.88 10.457-37.474 28.73L709.699 319.03h84.942l16.434-47.468h103.483l9.994 47.468H999.5L934.115 5.497h-68.273zm11.047 84.707l25.178 117.653h-67.454z"
+        fill={c1}
+      />
+    </svg>
   );
 }
 
