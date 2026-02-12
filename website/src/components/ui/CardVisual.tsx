@@ -93,9 +93,9 @@ const sizeStyles: Record<
   string,
   { w: string; h: string; labelSize: string; logoH: string; logoW: number; pad: string; numSize: string; nameSize: string }
 > = {
-  sm: { w: "w-[280px]", h: "h-[176px]", labelSize: "text-[7px]", logoH: "h-9", logoW: 140, pad: "p-4", numSize: "text-[13px]", nameSize: "text-[9px]" },
-  md: { w: "w-[360px]", h: "h-[226px]", labelSize: "text-[8px]", logoH: "h-11", logoW: 170, pad: "p-5", numSize: "text-[16px]", nameSize: "text-[10px]" },
-  lg: { w: "w-[430px]", h: "h-[270px]", labelSize: "text-[9px]", logoH: "h-12", logoW: 190, pad: "p-6", numSize: "text-lg", nameSize: "text-xs" },
+  sm: { w: "w-[280px]", h: "h-[176px]", labelSize: "text-[7px]", logoH: "h-11", logoW: 168, pad: "p-4", numSize: "text-[13px]", nameSize: "text-[9px]" },
+  md: { w: "w-[360px]", h: "h-[226px]", labelSize: "text-[8px]", logoH: "h-[52px]", logoW: 204, pad: "p-5", numSize: "text-[16px]", nameSize: "text-[10px]" },
+  lg: { w: "w-[430px]", h: "h-[270px]", labelSize: "text-[9px]", logoH: "h-14", logoW: 228, pad: "p-6", numSize: "text-lg", nameSize: "text-xs" },
 };
 
 const cardNumbers: Record<CardVariant, string> = {
