@@ -203,11 +203,13 @@ export default function CardVisual({
             className={`object-contain ${dims.logoH} w-auto`}
           />
         )}
-        <span
-          className={`${style.accent} ${dims.labelSize} tracking-[0.2em] font-bold`}
-        >
-          {style.label}
-        </span>
+        {variant !== "whitelabel" && (
+          <span
+            className={`${style.accent} ${dims.labelSize} tracking-[0.2em] font-bold`}
+          >
+            {style.label}
+          </span>
+        )}
       </div>
 
       {/* Spacer to push chip toward vertical center */}
