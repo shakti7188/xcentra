@@ -1,8 +1,22 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import MarqueeRow from "@/components/animations/MarqueeRow";
 import { fallbackPrices } from "@/lib/api/coingecko";
 import type { CryptoPrice } from "@/types";
+
+const COINGECKO_API = "https://api.coingecko.com/api/v3";
+
+const COIN_IDS = [
+  { id: "tether", symbol: "USDT", name: "Tether" },
+  { id: "bitcoin", symbol: "BTC", name: "Bitcoin" },
+  { id: "ethereum", symbol: "ETH", name: "Ethereum" },
+  { id: "solana", symbol: "SOL", name: "Solana" },
+  { id: "matic-network", symbol: "MATIC", name: "Polygon" },
+  { id: "tron", symbol: "TRX", name: "Tron" },
+  { id: "ripple", symbol: "XRP", name: "Ripple" },
+  { id: "cardano", symbol: "ADA", name: "Cardano" },
+];
 
 function TickerItem({ coin }: { coin: CryptoPrice }) {
   const isPositive = coin.change24h >= 0;
@@ -21,17 +35,42 @@ function TickerItem({ coin }: { coin: CryptoPrice }) {
   );
 }
 
-interface CryptoTickerProps {
-  prices?: CryptoPrice[];
-}
+export default function CryptoTicker() {
+  const [prices, setPrices] = useState<CryptoPrice[]>(fallbackPrices);
 
-export default function CryptoTicker({ prices }: CryptoTickerProps) {
-  const data = prices && prices.length > 0 ? prices : fallbackPrices;
+  useEffect(() => {
+    async function fetchPrices() {
+      try {
+        const ids = COIN_IDS.map((c) => c.id).join(",");
+        const res = await fetch(
+          `${COINGECKO_API}/simple/price?ids=${ids}&vs_currencies=usd&include_24hr_change=true`
+        );
+        if (!res.ok) throw new Error("API error");
+        const data = await res.json();
+
+        const fetched = COIN_IDS.map((coin) => ({
+          symbol: coin.symbol,
+          name: coin.name,
+          price: data[coin.id]?.usd ?? 0,
+          change24h: data[coin.id]?.usd_24h_change ?? 0,
+          icon: `/images/icons/${coin.symbol.toLowerCase()}.svg`,
+        }));
+        setPrices(fetched);
+      } catch {
+        // Keep fallback prices
+      }
+    }
+
+    fetchPrices();
+    // Refresh every 60 seconds
+    const interval = setInterval(fetchPrices, 60000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="bg-bg-primary border-y border-border-dark py-4">
       <MarqueeRow speed={25}>
-        {data.map((coin) => (
+        {prices.map((coin) => (
           <TickerItem key={coin.symbol} coin={coin} />
         ))}
       </MarqueeRow>

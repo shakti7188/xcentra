@@ -149,7 +149,7 @@ export default function WhatIsXcentra() {
         </div>
 
         {/* Right: Interactive Phone Mockup */}
-        <div>
+        <div className="overflow-hidden">
           <ScrollReveal direction="left">
             <div className="flex justify-center">
               <div className="relative w-[300px] sm:w-[320px]">

@@ -25,7 +25,7 @@ export default function SectionWrapper({
 }: SectionWrapperProps) {
   return (
     <section
-      className={`py-20 md:py-28 ${themeStyles[theme]} ${className}`}
+      className={`py-20 md:py-28 overflow-hidden ${themeStyles[theme]} ${className}`}
       {...props}
     >
       <div

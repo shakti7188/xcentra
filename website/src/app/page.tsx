@@ -11,18 +11,15 @@ import Testimonials from "@/components/sections/Testimonials";
 import GeoSection from "@/components/sections/GeoSection";
 import FAQ from "@/components/sections/FAQ";
 import FinalCTA from "@/components/sections/FinalCTA";
-import { fetchCryptoPrices } from "@/lib/api/coingecko";
 
-export default async function Home() {
-  const prices = await fetchCryptoPrices();
-
+export default function Home() {
   return (
     <>
       {/* Section 1: Hero — Dark BG with 3D Card Flip + Particles */}
       <Hero />
 
-      {/* Section 2: Live Crypto Ticker */}
-      <CryptoTicker prices={prices} />
+      {/* Section 2: Live Crypto Ticker — Client-side fetched */}
+      <CryptoTicker />
 
       {/* Section 3: As Seen In / Trust Bar */}
       <TrustBar />
