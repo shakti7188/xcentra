@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { footerNav } from "@/lib/constants/navigation";
-import { Github, Twitter, Linkedin, Send } from "lucide-react";
+import { Twitter, Linkedin, Instagram, Facebook } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -24,13 +24,20 @@ export default function Footer() {
               The borderless digital finance platform. Spend stablecoins like everyday money.
             </p>
             <div className="flex gap-3">
-              {[Twitter, Linkedin, Github, Send].map((Icon, i) => (
+              {[
+                { icon: Instagram, href: "https://www.instagram.com/xcentraofficial/" },
+                { icon: Linkedin, href: "https://www.linkedin.com/company/xcentra/" },
+                { icon: Facebook, href: "https://www.facebook.com/profile.php?id=61587907153019" },
+                { icon: Twitter, href: "https://x.com/Xcentraofficial" },
+              ].map((social) => (
                 <a
-                  key={i}
-                  href="#"
+                  key={social.href}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex h-9 w-9 items-center justify-center rounded-lg border border-border-dark text-text-secondary hover:text-accent hover:border-accent/30 transition-colors"
                 >
-                  <Icon className="h-4 w-4" />
+                  <social.icon className="h-4 w-4" />
                 </a>
               ))}
             </div>
