@@ -46,21 +46,21 @@ const testimonials = [
     role: "Travel Blogger",
     quote:
       "I travel 8 months a year. Xcentra lets me pay in any country without worrying about conversion rates or bank fees.",
-    image: "/images/stock/testimonial-woman-office.jpg",
+    image: "/images/stock/testimonial-travel-blogger.jpg",
   },
   {
     name: "James T.",
     role: "Startup Founder",
     quote:
       "We pay our global team with Xcentra. No more international wire delays — everyone gets paid the same day.",
-    image: "/images/stock/testimonial-man-casual.jpg",
+    image: "/images/stock/testimonial-startup-founder.jpg",
   },
   {
     name: "Lina W.",
     role: "Graphic Designer",
     quote:
       "Getting paid in USDC from US clients and spending it with my Xcentra card locally is incredibly smooth.",
-    image: "/images/stock/testimonial-woman-smile.jpg",
+    image: "/images/stock/testimonial-designer.jpg",
   },
 ];
 
