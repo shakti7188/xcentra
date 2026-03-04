@@ -15,6 +15,7 @@ export const mainNav: NavItem[] = [
   },
   { label: "How It Works", href: "/how-it-works" },
   { label: "Security", href: "/security" },
+  { label: "Whitepaper", href: "/whitepaper" },
   { label: "Roadmap", href: "/roadmap" },
   { label: "FAQ", href: "/faq" },
 ];
@@ -34,6 +35,7 @@ export const footerNav = {
     { label: "Contact", href: "/contact" },
   ],
   resources: [
+    { label: "Whitepaper", href: "/whitepaper" },
     { label: "Security", href: "/security" },
     { label: "How It Works", href: "/how-it-works" },
     { label: "FAQ", href: "/faq" },
