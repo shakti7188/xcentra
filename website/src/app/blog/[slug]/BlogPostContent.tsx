@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import Badge from "@/components/ui/Badge";
-import { categoryColors, type BlogPost } from "@/lib/constants/blog";
+import { type BlogPost } from "@/lib/constants/blog";
 import { ArrowLeft, Clock, Calendar } from "lucide-react";
 
 export default function BlogPostContent({ post }: { post: BlogPost }) {
@@ -25,11 +25,6 @@ export default function BlogPostContent({ post }: { post: BlogPost }) {
 
           <ScrollReveal delay={0.1}>
             <div className="flex items-center gap-3 mb-4">
-              <span
-                className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${categoryColors[post.category] || "bg-gray-100 text-gray-600"}`}
-              >
-                {post.category}
-              </span>
               <span className="flex items-center gap-1.5 text-text-secondary text-xs">
                 <Calendar className="h-3 w-3" />
                 {post.date}

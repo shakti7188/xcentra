@@ -6,7 +6,7 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import Badge from "@/components/ui/Badge";
 import GravityGrid from "@/components/animations/GravityGrid";
-import { blogPosts, categoryColors } from "@/lib/constants/blog";
+import { blogPosts } from "@/lib/constants/blog";
 import { ArrowRight, Clock } from "lucide-react";
 
 export default function BlogContent() {
@@ -48,13 +48,6 @@ export default function BlogContent() {
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute top-4 left-4">
-                    <span
-                      className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${categoryColors[post.category] || "bg-gray-100 text-gray-600"}`}
-                    >
-                      {post.category}
-                    </span>
-                  </div>
                 </div>
                 <div className="p-6 flex-1 flex flex-col">
                   <div className="flex items-center gap-3 text-xs text-text-muted mb-3">
