@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { blogPosts } from "@/lib/constants/blog";
 import BlogPostContent from "./BlogPostContent";
+import { articleSchema, breadcrumbSchema } from "@/lib/seo/schemas";
 
 export function generateStaticParams() {
   return blogPosts
@@ -24,6 +25,8 @@ export async function generateMetadata({
     openGraph: {
       title: post.title,
       description: post.excerpt,
+      type: "article",
+      publishedTime: post.date,
       images: [{ url: post.image }],
     },
   };
@@ -41,5 +44,27 @@ export default async function BlogPost({
     notFound();
   }
 
-  return <BlogPostContent post={post} />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(articleSchema(post)),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbSchema([
+              { name: "Home", url: "/" },
+              { name: "Blog", url: "/blog" },
+              { name: post.title, url: `/blog/${post.slug}/` },
+            ])
+          ),
+        }}
+      />
+      <BlogPostContent post={post} />
+    </>
+  );
 }

@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 export const siteConfig = {
   name: "Xcentra",
   tagline: "The Borderless Digital Finance Platform",
-  url: "https://xcentra.com",
+  url: "https://xcentra.io",
   description:
-    "Spend stablecoins like everyday money with Xcentra virtual & physical cards. 0.5% flat fee, 150M+ merchants, 100+ countries. Built for travelers, expats, freelancers, and global citizens.",
+    "Spend stablecoins with Xcentra virtual & physical debit cards. 0.5% flat fee, 150M+ merchants, 100+ countries.",
 };
 
 export const homeMetadata: Metadata = {

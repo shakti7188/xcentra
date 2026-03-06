@@ -16,7 +16,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   ...homeMetadata,
-  metadataBase: new URL("https://xcentra.com"),
+  metadataBase: new URL("https://xcentra.io"),
   icons: {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },

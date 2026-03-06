@@ -40,12 +40,6 @@ export const footerNav = {
     { label: "How It Works", href: "/how-it-works" },
     { label: "FAQ", href: "/faq" },
   ],
-  regions: [
-    { label: "UAE & Dubai", href: "/regions/uae" },
-    { label: "UK & Europe", href: "/regions/uk" },
-    { label: "Indonesia", href: "/regions/indonesia" },
-    { label: "Brazil", href: "/regions/brazil" },
-  ],
   legal: [
     { label: "Privacy Policy", href: "/legal/privacy-policy" },
     { label: "Terms of Service", href: "/legal/terms" },

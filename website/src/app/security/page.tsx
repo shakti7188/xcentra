@@ -4,7 +4,7 @@ import SecurityContent from "./SecurityContent";
 export const metadata: Metadata = {
   title: "Security | Xcentra — Enterprise-Grade Protection for Your Assets",
   description:
-    "Xcentra uses bank-grade encryption, 2FA, biometric authentication, instant card freeze, and real-time fraud monitoring to protect your stablecoins and transactions.",
+    "Bank-grade encryption, 2FA, biometric auth, instant card freeze, and real-time fraud monitoring to protect your assets.",
 };
 
 export default function SecurityPage() {
