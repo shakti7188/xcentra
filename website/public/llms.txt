@@ -1,0 +1,36 @@
+# Xcentra
+
+> Xcentra is a borderless digital finance platform that lets users spend USDC and USDT stablecoins at 150M+ merchants worldwide using virtual and physical debit cards. 0.5% flat fee, real-time conversion, available in 100+ countries.
+
+Xcentra bridges digital assets and real-world commerce. Users load stablecoins (USDC, USDT) into their Xcentra wallet, get a virtual or physical debit card, and spend anywhere Visa/Mastercard is accepted. The platform is built on the Xhavic blockchain for secure, transparent transactions.
+
+## Core Product
+
+- [Global Cards](https://xcentra.io/cards/): Virtual and physical stablecoin debit cards for spending USDC and USDT at 150M+ merchants worldwide with real-time conversion and 0.5% flat fee.
+- [How It Works](https://xcentra.io/how-it-works/): Step-by-step guide to using Xcentra — add stablecoins, get a card, spend globally.
+- [Fees](https://xcentra.io/fees/): Transparent fee structure for Xcentra card transactions.
+- [Security](https://xcentra.io/security/): Enterprise-grade security including encryption, 2FA, biometric auth, instant card freeze, and real-time fraud monitoring.
+
+## Company
+
+- [About](https://xcentra.io/about/): Xcentra's mission, vision, and team — building borderless financial infrastructure for global citizens.
+- [Whitepaper](https://xcentra.io/whitepaper/): Xcentra Whitepaper v1.0 — architecture, market opportunity, roadmap, revenue model, and technology stack.
+- [Roadmap](https://xcentra.io/roadmap/): Phased product roadmap — Global Payouts, USD Accounts, and Merchant Ecosystem.
+- [Blog](https://xcentra.io/blog/): Latest updates, guides, and insights from Xcentra.
+
+## Upcoming Products
+
+- [Global Payouts](https://xcentra.io/global-payouts/): Send payments to 100+ countries with instant settlement (coming soon).
+- [Global USD Account](https://xcentra.io/global-usd-account/): USD-denominated accounts for freelancers, remote workers, and businesses worldwide (coming soon).
+- [Merchant Ecosystem](https://xcentra.io/merchant-ecosystem/): Accept stablecoin payments at point-of-sale with instant fiat settlement (coming soon).
+- [White Label Cards](https://xcentra.io/white-label/): Launch your own branded virtual and physical debit cards powered by the Xhavic blockchain.
+
+## Support
+
+- [FAQ](https://xcentra.io/faq/): Frequently asked questions about Xcentra cards, fees, supported countries, and account setup.
+- [Contact](https://xcentra.io/contact/): Get in touch with the Xcentra team for support or partnership inquiries.
+
+## Legal
+
+- [Privacy Policy](https://xcentra.io/legal/privacy-policy/): How Xcentra collects, uses, and protects user data.
+- [Terms of Service](https://xcentra.io/legal/terms/): Terms and conditions for using the Xcentra platform.
