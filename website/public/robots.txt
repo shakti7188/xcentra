@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /_next/
+Disallow: /admin/
+Disallow: /includes/
 
 Sitemap: https://xcentra.io/sitemap.xml

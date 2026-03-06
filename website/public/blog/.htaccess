@@ -1,0 +1,11 @@
+# Xcentra Blog — URL Routing
+# Routes /blog/slug/ to post.php?slug=slug
+
+RewriteEngine On
+RewriteBase /blog/
+
+# Blog index: /blog/ -> index.php
+RewriteRule ^$ index.php [L]
+
+# Blog post: /blog/some-slug/ -> post.php?slug=some-slug
+RewriteRule ^([a-z0-9][a-z0-9-]*)/?$ post.php?slug=$1 [L,QSA]
