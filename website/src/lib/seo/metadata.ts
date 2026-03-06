@@ -5,11 +5,11 @@ export const siteConfig = {
   tagline: "The Borderless Digital Finance Platform",
   url: "https://xcentra.io",
   description:
-    "Spend stablecoins with Xcentra virtual & physical debit cards. 0.5% flat fee, 150M+ merchants, 100+ countries.",
+    "Spend USDC & USDT with Xcentra virtual & physical debit cards at 150M+ merchants worldwide. 0.5% flat fee, real-time conversion, 100+ countries.",
 };
 
 export const homeMetadata: Metadata = {
-  title: "Xcentra — Spend USDC & USDT Globally | 0.5% Fee",
+  title: "Xcentra — Spend USDC & USDT at 150M+ Merchants | 0.5% Fee",
   description: siteConfig.description,
   alternates: {
     canonical: "/",
@@ -49,7 +49,7 @@ export const homeMetadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Xcentra — Spend USDC & USDT Globally | 0.5% Fee",
+    title: "Xcentra — Spend USDC & USDT at 150M+ Merchants | 0.5% Fee",
     description: siteConfig.description,
     images: ["/images/og/home.jpg"],
   },
