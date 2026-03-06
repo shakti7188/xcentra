@@ -1,8 +1,3 @@
-# Blog routing — PHP blog pages (UNCOMMENT after MySQL setup on cPanel)
-# To activate PHP blog: uncomment these 2 lines + set up MySQL database
-# RewriteRule ^blog/?$ /blog/index.php [L]
-# RewriteRule ^blog/([a-z0-9][a-z0-9-]*)/?$ /blog/post.php?slug=$1 [L,QSA]
-
 # Force HTTPS
 RewriteEngine On
 RewriteCond %{HTTPS} off

@@ -1,15 +1,2 @@
-# Xcentra Blog — URL Routing (PHP-powered)
-# UNCOMMENT these rules after MySQL setup on cPanel
-# Then the blog will be served by PHP instead of static HTML
-
-# RewriteEngine On
-# RewriteBase /blog/
-
-# Blog index: /blog/ -> index.php
-# RewriteRule ^$ index.php [L]
-
-# Blog post: /blog/some-slug/ -> post.php?slug=some-slug
-# RewriteRule ^([a-z0-9][a-z0-9-]*)/?$ post.php?slug=$1 [L,QSA]
-
-# Until PHP blog is active, serve static HTML
+# Serve static HTML blog
 DirectoryIndex index.html

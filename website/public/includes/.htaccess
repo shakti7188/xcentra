@@ -1,3 +1,0 @@
-# Deny direct access to PHP includes
-Order deny,allow
-Deny from all
