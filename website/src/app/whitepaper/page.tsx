@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Whitepaper | Xcentra — The Borderless Digital Finance Platform",
   description:
     "Xcentra Whitepaper v1.0 — how Xcentra bridges digital assets and real-world commerce via global cards, payouts, and USD accounts.",
+  alternates: { canonical: "/whitepaper/" },
   openGraph: {
     title: "Xcentra Whitepaper v1.0",
     description:

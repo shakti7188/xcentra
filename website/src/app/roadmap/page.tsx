@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Roadmap | Xcentra — Building Global Payment Infrastructure",
   description:
     "Explore the Xcentra product roadmap: from global spending cards to payouts, USD accounts, and a direct merchant ecosystem.",
+  alternates: { canonical: "/roadmap/" },
 };
 
 export default function RoadmapPage() {

@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Merchant Ecosystem | Xcentra — Direct Stablecoin Payments",
   description:
     "Xcentra PoS — pay merchants directly with ultra-low fees. A proprietary closed-loop payment network for the stablecoin economy.",
+  alternates: { canonical: "/merchant-ecosystem/" },
 };
 
 export default function MerchantPage() {

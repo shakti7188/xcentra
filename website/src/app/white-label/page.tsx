@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "White Label Cards — Launch Your Branded Debit Card | Xcentra",
   description:
     "Launch branded virtual and physical debit cards powered by the Xhavic blockchain. Custom branding, program management, 150M+ merchants.",
+  alternates: { canonical: "/white-label/" },
   openGraph: {
     title: "White Label Cards — Launch Your Branded Debit Card | Xcentra",
     description:

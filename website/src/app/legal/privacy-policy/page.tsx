@@ -4,6 +4,7 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 export const metadata: Metadata = {
   title: "Privacy Policy | Xcentra",
   description: "Xcentra Privacy Policy — how we collect, use, and protect your data.",
+  alternates: { canonical: "/legal/privacy-policy/" },
 };
 
 export default function PrivacyPolicyPage() {

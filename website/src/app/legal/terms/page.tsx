@@ -4,6 +4,7 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 export const metadata: Metadata = {
   title: "Terms of Service | Xcentra",
   description: "Xcentra Terms of Service — the rules governing use of our platform.",
+  alternates: { canonical: "/legal/terms/" },
 };
 
 export default function TermsPage() {

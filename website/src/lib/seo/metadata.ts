@@ -11,6 +11,9 @@ export const siteConfig = {
 export const homeMetadata: Metadata = {
   title: "Xcentra — Spend USDC & USDT Anywhere | 0.5% Fee, 150M+ Merchants",
   description: siteConfig.description,
+  alternates: {
+    canonical: "/",
+  },
   keywords: [
     "stablecoin card",
     "USDC debit card",

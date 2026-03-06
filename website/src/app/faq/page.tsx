@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "FAQ | Xcentra — Frequently Asked Questions",
   description:
     "Answers about Xcentra stablecoin cards, global payouts, USD accounts, fees, security, and more.",
+  alternates: { canonical: "/faq/" },
 };
 
 const allFaqItems = [

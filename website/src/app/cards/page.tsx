@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Global Cards | Xcentra — Virtual & Physical Stablecoin Debit Cards",
   description:
     "Spend USDC and USDT at 150M+ merchants worldwide with Xcentra virtual and physical debit cards. Real-time conversion, ultra-low fees.",
+  alternates: { canonical: "/cards/" },
 };
 
 export default function CardsPage() {
