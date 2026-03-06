@@ -9,7 +9,7 @@ export const siteConfig = {
 };
 
 export const homeMetadata: Metadata = {
-  title: "Xcentra — Spend USDC & USDT Anywhere | 0.5% Fee, 150M+ Merchants",
+  title: "Xcentra — Spend USDC & USDT Globally | 0.5% Fee",
   description: siteConfig.description,
   alternates: {
     canonical: "/",
@@ -49,7 +49,7 @@ export const homeMetadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Xcentra — Spend USDC & USDT Anywhere | 0.5% Fee, 150M+ Merchants",
+    title: "Xcentra — Spend USDC & USDT Globally | 0.5% Fee",
     description: siteConfig.description,
     images: ["/images/og/home.jpg"],
   },
