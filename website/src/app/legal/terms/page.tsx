@@ -95,7 +95,7 @@ export default function TermsPage() {
                 7. Contact
               </h2>
               <p>
-                For questions about these terms, contact us at legal@xcentra.com.
+                For questions about these terms, contact us at legal [at] xcentra.com.
               </p>
             </div>
           </div>

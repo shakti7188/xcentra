@@ -75,7 +75,7 @@ export default function PrivacyPolicyPage() {
               <p>
                 You have the right to access, correct, or delete your personal
                 data. You can also opt out of marketing communications. Contact
-                us at privacy@xcentra.com for any data-related requests.
+                us at privacy [at] xcentra.com for any data-related requests.
               </p>
             </div>
 
@@ -85,7 +85,7 @@ export default function PrivacyPolicyPage() {
               </h2>
               <p>
                 For privacy-related questions, please contact us at
-                privacy@xcentra.com.
+                privacy [at] xcentra.com.
               </p>
             </div>
           </div>
