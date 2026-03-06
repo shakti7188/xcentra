@@ -38,33 +38,36 @@ def run_build():
 
 
 def cleanup_blog():
-    """Remove static blog HTML files (blog is PHP-powered now).
-    Keep the PHP files that were copied from public/blog/."""
-    print("\n[2/4] Cleaning up static blog files...")
+    """Clean up blog directory.
+    Currently: keep static HTML (blog is served as static pages).
+    When PHP blog is activated: uncomment the removal code below
+    to remove static HTML and let PHP handle blog pages."""
+    print("\n[2/4] Blog files check...")
     blog_dir = OUT_DIR / "blog"
     if blog_dir.exists():
-        # Remove only .html and Next.js metadata files, keep .php and .htaccess
-        removed = 0
-        for root, dirs, files in os.walk(blog_dir, topdown=False):
-            for f in files:
-                fpath = Path(root) / f
-                # Keep PHP files, .htaccess, and .gitkeep
-                if fpath.suffix in ('.php', '.htaccess', '.gitkeep'):
-                    continue
-                # Remove HTML and Next.js metadata files
-                if fpath.suffix in ('.html', '.txt') or f.startswith('__next'):
-                    fpath.unlink()
-                    removed += 1
-            # Remove empty subdirectories (slug dirs that had index.html)
-            for d in dirs:
-                dpath = Path(root) / d
-                try:
-                    dpath.rmdir()  # Only removes if empty
-                except OSError:
-                    pass
-        print(f"  Removed {removed} static blog files.")
+        html_count = len(list(blog_dir.rglob("*.html")))
+        php_count = len(list(blog_dir.rglob("*.php")))
+        print(f"  Blog HTML pages: {html_count}")
+        print(f"  Blog PHP files:  {php_count} (inactive until MySQL setup)")
+        # ── UNCOMMENT BELOW when PHP blog is activated ──
+        # removed = 0
+        # for root, dirs, files in os.walk(blog_dir, topdown=False):
+        #     for f in files:
+        #         fpath = Path(root) / f
+        #         if fpath.suffix in ('.php', '.htaccess', '.gitkeep'):
+        #             continue
+        #         if fpath.suffix in ('.html', '.txt') or f.startswith('__next'):
+        #             fpath.unlink()
+        #             removed += 1
+        #     for d in dirs:
+        #         dpath = Path(root) / d
+        #         try:
+        #             dpath.rmdir()
+        #         except OSError:
+        #             pass
+        # print(f"  Removed {removed} static blog files.")
     else:
-        print("  No blog directory found (already clean).")
+        print("  No blog directory found.")
 
 
 def extract_asset_hashes():
