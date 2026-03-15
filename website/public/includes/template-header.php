@@ -42,6 +42,9 @@ if (!isset($extraHead))     $extraHead     = '';
 <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo e(GA_ID); ?>"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','<?php echo e(GA_ID); ?>');</script>
 
+<!-- EmailOctopus -->
+<script async src="https://eocampaign1.com/form/ee70c730-2054-11f1-8349-df6c900e72ed.js" data-form="ee70c730-2054-11f1-8349-df6c900e72ed"></script>
+
 <!-- SEO -->
 <title><?php echo e($pageTitle); ?></title>
 <meta name="description" content="<?php echo e($pageDescription); ?>" />
