@@ -44,6 +44,7 @@ export default function RootLayout({
             __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-D6TT1LQY0G');`,
           }}
         />
+        <script async src="https://eocampaign1.com/form/ee70c730-2054-11f1-8349-df6c900e72ed.js" data-form="ee70c730-2054-11f1-8349-df6c900e72ed" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
