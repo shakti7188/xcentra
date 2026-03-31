@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
 import GravityGrid from "@/components/animations/GravityGrid";
+import { submitToSheet } from "@/lib/submitForm";
 import {
   Mail,
   MessageSquare,
@@ -55,11 +56,22 @@ export default function ContactContent() {
   const [formStatus, setFormStatus] = useState<"idle" | "sending" | "sent">(
     "idle"
   );
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormStatus("sending");
-    setTimeout(() => setFormStatus("sent"), 1500);
+    const form = formRef.current;
+    if (!form) return;
+    const fd = new FormData(form);
+    await submitToSheet({
+      type: "Contact",
+      name: fd.get("name") as string,
+      email: fd.get("email") as string,
+      subject: fd.get("subject") as string,
+      message: fd.get("message") as string,
+    });
+    setFormStatus("sent");
   };
 
   return (
@@ -127,6 +139,7 @@ export default function ContactContent() {
 
           <ScrollReveal delay={0.1}>
             <form
+              ref={formRef}
               onSubmit={handleSubmit}
               className="glass rounded-2xl p-8 border border-border-dark space-y-6"
             >
@@ -137,6 +150,7 @@ export default function ContactContent() {
                   </label>
                   <input
                     type="text"
+                    name="name"
                     required
                     placeholder="Your name"
                     className="w-full rounded-xl bg-white/5 border border-border-dark px-4 py-3 text-text-primary placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent/50 transition-colors"
@@ -148,6 +162,7 @@ export default function ContactContent() {
                   </label>
                   <input
                     type="email"
+                    name="email"
                     required
                     placeholder="you@example.com"
                     className="w-full rounded-xl bg-white/5 border border-border-dark px-4 py-3 text-text-primary placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent/50 transition-colors"
@@ -159,7 +174,7 @@ export default function ContactContent() {
                 <label className="block text-sm font-medium text-text-secondary mb-2">
                   Subject
                 </label>
-                <select className="w-full rounded-xl bg-white/5 border border-border-dark px-4 py-3 text-text-primary focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent/50 transition-colors">
+                <select name="subject" className="w-full rounded-xl bg-white/5 border border-border-dark px-4 py-3 text-text-primary focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent/50 transition-colors">
                   <option value="support">General Support</option>
                   <option value="cards">Card Issue</option>
                   <option value="partnership">Partnership Inquiry</option>
@@ -173,6 +188,7 @@ export default function ContactContent() {
                   Message
                 </label>
                 <textarea
+                  name="message"
                   required
                   rows={5}
                   placeholder="Tell us how we can help..."

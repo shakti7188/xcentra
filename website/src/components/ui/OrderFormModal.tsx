@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, CheckCircle, CreditCard, Smartphone, Crown, Loader2 } from "lucide-react";
+import { submitToSheet } from "@/lib/submitForm";
 
 type CardType = "virtual" | "physical" | "premium";
 
@@ -153,10 +154,15 @@ export default function OrderFormModal({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-
+    await submitToSheet({
+      type: "Card Order",
+      name: formData.name,
+      email: formData.email,
+      cardType: selectedCard,
+      country: formData.country,
+      spending: formData.spending,
+      referral: formData.referral,
+    });
     setLoading(false);
     setStep("success");
   };

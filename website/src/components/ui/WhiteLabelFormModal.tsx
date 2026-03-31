@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, CheckCircle, Building2, Loader2 } from "lucide-react";
+import { submitToSheet } from "@/lib/submitForm";
 
 interface WhiteLabelFormModalProps {
   isOpen: boolean;
@@ -53,7 +54,13 @@ export default function WhiteLabelFormModal({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    await submitToSheet({
+      type: "White Label",
+      company: formData.company,
+      contact: formData.contact,
+      email: formData.email,
+      phone: formData.phone,
+    });
     setLoading(false);
     setStep("success");
   };
