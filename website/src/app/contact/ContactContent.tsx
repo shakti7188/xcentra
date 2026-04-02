@@ -175,11 +175,11 @@ export default function ContactContent() {
                   Subject
                 </label>
                 <select name="subject" className="w-full rounded-xl bg-white/5 border border-border-dark px-4 py-3 text-text-primary focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent/50 transition-colors">
-                  <option value="support">General Support</option>
-                  <option value="cards">Card Issue</option>
-                  <option value="partnership">Partnership Inquiry</option>
-                  <option value="media">Media / Press</option>
-                  <option value="other">Other</option>
+                  <option value="support" className="bg-neutral-900 text-white">General Support</option>
+                  <option value="cards" className="bg-neutral-900 text-white">Card Issue</option>
+                  <option value="partnership" className="bg-neutral-900 text-white">Partnership Inquiry</option>
+                  <option value="media" className="bg-neutral-900 text-white">Media / Press</option>
+                  <option value="other" className="bg-neutral-900 text-white">Other</option>
                 </select>
               </div>
 
