@@ -94,7 +94,7 @@ export default function ContactContent() {
 
       {/* Contact Methods */}
       <SectionWrapper theme="dark">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+        <div className="grid sm:grid-cols-3 gap-6 mb-20 max-w-4xl mx-auto">
           {contactMethods.map((method, i) => (
             <ScrollReveal key={method.title} delay={i * 0.1}>
               <div className="glass rounded-2xl p-6 h-full border border-border-dark card-hover-glow text-center">
