@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { footerNav } from "@/lib/constants/navigation";
-import { Twitter, Linkedin, Instagram, Facebook } from "lucide-react";
+import { Twitter, Linkedin, Instagram, Facebook, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -23,6 +23,10 @@ export default function Footer() {
             <p className="text-sm text-text-secondary leading-relaxed mb-6">
               The borderless digital finance platform. Spend stablecoins like everyday money.
             </p>
+            <div className="flex items-start gap-2 mb-5 text-sm text-text-secondary">
+              <MapPin className="h-4 w-4 text-accent mt-0.5 shrink-0" />
+              <span>Bay Square, Business Bay,<br />Dubai, UAE</span>
+            </div>
             <div className="flex gap-3">
               {[
                 { icon: Instagram, href: "https://www.instagram.com/xcentraofficial/" },

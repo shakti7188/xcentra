@@ -316,11 +316,12 @@ export default function OrderFormModal({
                     <div>
                       <label htmlFor="telegram" className={labelClasses}>
                         Telegram ID{" "}
-                        <span className="text-white/30 font-normal">(optional)</span>
+                        <span className="text-accent">*</span>
                       </label>
                       <input
                         id="telegram"
                         type="text"
+                        required
                         value={formData.telegram}
                         onChange={(e) =>
                           setFormData((prev) => ({ ...prev, telegram: e.target.value }))

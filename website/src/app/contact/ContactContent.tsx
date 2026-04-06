@@ -173,11 +173,12 @@ export default function ContactContent() {
 
               <div>
                 <label className="block text-sm font-medium text-text-secondary mb-2">
-                  Telegram ID <span className="text-text-muted">(optional)</span>
+                  Telegram ID <span className="text-accent">*</span>
                 </label>
                 <input
                   type="text"
                   name="telegram"
+                  required
                   placeholder="@yourusername"
                   className="w-full rounded-xl bg-white/5 border border-border-dark px-4 py-3 text-text-primary placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent/50 transition-colors"
                 />
@@ -242,19 +243,16 @@ export default function ContactContent() {
             </div>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <p className="text-text-muted leading-relaxed mb-2">
+            <p className="text-text-muted leading-relaxed mb-6">
               Xcentra operates globally with teams across multiple regions.
             </p>
-            <div className="flex flex-wrap justify-center gap-6 mt-6">
-              {["Dubai, UAE", "London, UK", "Singapore"].map((city) => (
-                <div
-                  key={city}
-                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-black/5 text-sm font-medium text-text-muted"
-                >
-                  <MapPin className="h-3.5 w-3.5 text-accent" />
-                  {city}
-                </div>
-              ))}
+            <div className="inline-flex items-start gap-3 px-6 py-4 rounded-2xl bg-black/5 text-left">
+              <MapPin className="h-5 w-5 text-accent mt-0.5 shrink-0" />
+              <div>
+                <p className="text-sm font-semibold text-text-dark">Headquarters</p>
+                <p className="text-sm text-text-muted mt-0.5">Bay Square, Business Bay</p>
+                <p className="text-sm text-text-muted">Dubai, UAE</p>
+              </div>
             </div>
           </ScrollReveal>
         </div>
