@@ -17,7 +17,7 @@ export function organizationSchema() {
     ],
     contactPoint: {
       "@type": "ContactPoint",
-      email: "support@xcentra.com",
+      email: "marketing@xcentra.io",
       contactType: "customer support",
       availableLanguage: "English",
     },
