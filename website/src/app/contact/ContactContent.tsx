@@ -14,7 +14,6 @@ import {
   Clock,
   Send,
   Phone,
-  Building,
 } from "lucide-react";
 
 const contactMethods = [
@@ -33,14 +32,6 @@ const contactMethods = [
     detail: "marketing@xcentra.io",
     color: "text-emerald-400",
     bg: "bg-emerald-500/10",
-  },
-  {
-    icon: Building,
-    title: "Partnerships",
-    description: "Interested in partnering with Xcentra? Let us talk.",
-    detail: "marketing@xcentra.io",
-    color: "text-amber-400",
-    bg: "bg-amber-500/10",
   },
   {
     icon: Phone,
