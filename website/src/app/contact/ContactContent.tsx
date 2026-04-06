@@ -68,6 +68,7 @@ export default function ContactContent() {
       type: "Contact",
       name: fd.get("name") as string,
       email: fd.get("email") as string,
+      telegram: fd.get("telegram") as string || "",
       subject: fd.get("subject") as string,
       message: fd.get("message") as string,
     });
@@ -168,6 +169,18 @@ export default function ContactContent() {
                     className="w-full rounded-xl bg-white/5 border border-border-dark px-4 py-3 text-text-primary placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent/50 transition-colors"
                   />
                 </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-text-secondary mb-2">
+                  Telegram ID <span className="text-text-muted">(optional)</span>
+                </label>
+                <input
+                  type="text"
+                  name="telegram"
+                  placeholder="@yourusername"
+                  className="w-full rounded-xl bg-white/5 border border-border-dark px-4 py-3 text-text-primary placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent/50 transition-colors"
+                />
               </div>
 
               <div>

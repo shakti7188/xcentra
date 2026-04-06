@@ -114,6 +114,7 @@ export default function OrderFormModal({
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    telegram: "",
     country: "",
     spending: "",
     referral: "",
@@ -126,7 +127,7 @@ export default function OrderFormModal({
       setStep("form");
       setLoading(false);
       setSelectedCard(defaultCardType);
-      setFormData({ name: "", email: "", country: "", spending: "", referral: "" });
+      setFormData({ name: "", email: "", telegram: "", country: "", spending: "", referral: "" });
     }
   }, [isOpen, defaultCardType]);
 
@@ -158,6 +159,7 @@ export default function OrderFormModal({
       type: "Card Order",
       name: formData.name,
       email: formData.email,
+      telegram: formData.telegram,
       cardType: selectedCard,
       country: formData.country,
       spending: formData.spending,
@@ -306,6 +308,24 @@ export default function OrderFormModal({
                           setFormData((prev) => ({ ...prev, email: e.target.value }))
                         }
                         placeholder="you@example.com"
+                        className={inputClasses}
+                      />
+                    </div>
+
+                    {/* Telegram */}
+                    <div>
+                      <label htmlFor="telegram" className={labelClasses}>
+                        Telegram ID{" "}
+                        <span className="text-white/30 font-normal">(optional)</span>
+                      </label>
+                      <input
+                        id="telegram"
+                        type="text"
+                        value={formData.telegram}
+                        onChange={(e) =>
+                          setFormData((prev) => ({ ...prev, telegram: e.target.value }))
+                        }
+                        placeholder="@yourusername"
                         className={inputClasses}
                       />
                     </div>

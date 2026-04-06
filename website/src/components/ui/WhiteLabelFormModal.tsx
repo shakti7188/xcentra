@@ -21,6 +21,7 @@ export default function WhiteLabelFormModal({
     contact: "",
     email: "",
     phone: "",
+    telegram: "",
   });
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -28,7 +29,7 @@ export default function WhiteLabelFormModal({
     if (isOpen) {
       setStep("form");
       setLoading(false);
-      setFormData({ company: "", contact: "", email: "", phone: "" });
+      setFormData({ company: "", contact: "", email: "", phone: "", telegram: "" });
     }
   }, [isOpen]);
 
@@ -60,6 +61,7 @@ export default function WhiteLabelFormModal({
       contact: formData.contact,
       email: formData.email,
       phone: formData.phone,
+      telegram: formData.telegram,
     });
     setLoading(false);
     setStep("success");
@@ -193,6 +195,23 @@ export default function WhiteLabelFormModal({
                           setFormData((prev) => ({ ...prev, phone: e.target.value }))
                         }
                         placeholder="+1 (555) 000-0000"
+                        className={inputClasses}
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="wl-telegram" className={labelClasses}>
+                        Telegram ID{" "}
+                        <span className="text-white/30 font-normal">(optional)</span>
+                      </label>
+                      <input
+                        id="wl-telegram"
+                        type="text"
+                        value={formData.telegram}
+                        onChange={(e) =>
+                          setFormData((prev) => ({ ...prev, telegram: e.target.value }))
+                        }
+                        placeholder="@yourusername"
                         className={inputClasses}
                       />
                     </div>
