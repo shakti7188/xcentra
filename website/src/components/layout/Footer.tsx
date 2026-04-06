@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { footerNav } from "@/lib/constants/navigation";
-import { Twitter, Linkedin, Instagram, Facebook, MapPin } from "lucide-react";
+import { Twitter, Linkedin, Instagram, Facebook, MapPin, Youtube } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -33,6 +33,7 @@ export default function Footer() {
                 { icon: Linkedin, href: "https://www.linkedin.com/company/xcentra/" },
                 { icon: Facebook, href: "https://www.facebook.com/profile.php?id=61587907153019" },
                 { icon: Twitter, href: "https://x.com/Xcentrafintech" },
+                { icon: Youtube, href: "https://www.youtube.com/@Xcentraofficial" },
               ].map((social) => (
                 <a
                   key={social.href}

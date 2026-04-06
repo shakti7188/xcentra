@@ -139,7 +139,7 @@ export default function WhatIsXcentra() {
                 Learn More
               </Button>
               <a
-                href="https://x.com/Xcentrafintech"
+                href="https://youtu.be/SuR4Jfh0FPA?si=a6BMK1z5Ohj2VQSC"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 className="inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent/50 focus:ring-offset-2 bg-transparent text-text-muted border border-black/15 hover:text-text-dark hover:bg-black/5 hover:border-black/30 px-7 py-3.5 text-base"

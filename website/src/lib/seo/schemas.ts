@@ -14,6 +14,7 @@ export function organizationSchema() {
       "https://www.linkedin.com/company/xcentra/",
       "https://www.facebook.com/profile.php?id=61587907153019",
       "https://x.com/Xcentrafintech",
+      "https://www.youtube.com/@Xcentraofficial",
     ],
     contactPoint: {
       "@type": "ContactPoint",
