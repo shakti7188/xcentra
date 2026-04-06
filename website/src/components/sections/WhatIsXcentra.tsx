@@ -138,12 +138,17 @@ export default function WhatIsXcentra() {
               <Button variant="primary" size="md" href="/how-it-works">
                 Learn More
               </Button>
-              <Button variant="ghost-dark" size="md" href="/about">
+              <a
+                href="https://x.com/Xcentrafintech"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                className="inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent/50 focus:ring-offset-2 bg-transparent text-text-muted border border-black/15 hover:text-text-dark hover:bg-black/5 hover:border-black/30 px-7 py-3.5 text-base"
+              >
                 <svg className="h-5 w-5 text-accent" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M8 5v14l11-7z" />
                 </svg>
                 Watch App Demo
-              </Button>
+              </a>
             </div>
           </ScrollReveal>
         </div>

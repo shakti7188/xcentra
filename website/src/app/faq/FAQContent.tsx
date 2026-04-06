@@ -100,7 +100,7 @@ const categories = [
       {
         question: "How do I contact support?",
         answer:
-          "Reach our support team 24/7 via in-app chat, email at support [at] xcentra.com, or through our contact page. Premium users get priority phone support.",
+          "Reach our support team 24/7 via in-app chat, email at support@xcentra.com, or through our contact page. Premium users get priority phone support.",
       },
     ],
   },
