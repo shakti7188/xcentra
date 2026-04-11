@@ -13,7 +13,7 @@ export function organizationSchema() {
       "https://www.instagram.com/xcentraofficial/",
       "https://www.linkedin.com/company/xcentra/",
       "https://www.facebook.com/profile.php?id=61587907153019",
-      "https://x.com/Xcentrafintech",
+      "https://x.com/xcentracards",
       "https://www.youtube.com/@Xcentraofficial",
     ],
     contactPoint: {
