@@ -33,7 +33,7 @@ export default function Footer() {
                 { icon: Linkedin, href: "https://www.linkedin.com/company/xcentra/" },
                 { icon: Facebook, href: "https://www.facebook.com/profile.php?id=61587907153019" },
                 { icon: Twitter, href: "https://x.com/xcentracards" },
-                { icon: Youtube, href: "https://www.youtube.com/@Xcentraofficial" },
+                { icon: Youtube, href: "https://www.youtube.com/@xcentrafintech" },
               ].map((social) => (
                 <a
                   key={social.href}
